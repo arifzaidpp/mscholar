@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../navbar/Navbar';
 import Carousel from '../Carousel/Carousel';
 import CourseCard from '../courseCard/CourseCard';
-import FilterSection from '../FilterSection/FilterSection';
+import FilterSection from '../filterSection/FilterSection';
 import { carouselSlides } from '../../../data/carouselData';
 import { filterCourses } from '../../../utils/filterCourses';
 import useGetAllCourses from '../../../hooks/useGetCourse';
