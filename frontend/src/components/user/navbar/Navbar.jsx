@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
               <img
-                src="https://s3-alpha-sig.figma.com/img/f940/7e1a/d9b9292cf83c6b1e07f9bd2cdbd77b6c?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=D86n9kRn~z0XmvoKeD-YTvs~AZ~8CsJxYF98Lmc7l5e884eBF~laED~lHSKSih3Yva2bswepsyj~ro3nhGthRp~3DuXPILZP3U74FcA2oZjRjLsMm3KmV7wIWtvtxssH-VUapSLj81opv5b~cIJyJESEqThl0WF-veoW-ioiJA9sucYsVDKIhTv3KraYjzWw0o4s49bcVdVoHbOvj5guQt7xXhzwlRS~QSWG~DhafcLNjerRecjPpaKqXogDs3j90GUpXRrGCYb7Ybl19w6sqJyHgkw3d7ycVXmhikJMmzTkdbvHiMDBD8MwKxWvcPogiltz5jvqf4YKPZElLv36uA__"
+                src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281580/icon_uqlu6x.png"
                 alt="Logo"
                 className="w-8 h-8 rounded-full"
               />

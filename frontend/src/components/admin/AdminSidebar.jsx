@@ -28,7 +28,7 @@ const AdminSidebar = ({ handleMenu }) => {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
       <div className="flex items-center gap-2 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
         <img
-          src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734241061/icon_uv0zwk.png"
+          src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281580/icon_uqlu6x.png"
           alt="Logo"
           className="w-auto h-8 rounded-full"
         />

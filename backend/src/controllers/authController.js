@@ -85,8 +85,8 @@ export const registerUser = catchAsyncErrors(async (req, res, next) => {
   }
 
   let avatar = {
-    public_id: 'default_avatar/default',
-    url: 'https://res.cloudinary.com/demo/image/upload/v1/default_avatar/default',
+    public_id: 'v1734282841/pngwing.com_ht7dbd',
+    url: 'https://res.cloudinary.com/dkykfxzpx/image/upload/v1734282841/pngwing.com_ht7dbd.png',
   };
 
   if (req.file) {

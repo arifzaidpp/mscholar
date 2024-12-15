@@ -39,7 +39,7 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 
                 <img 
-                src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734241061/icon_uv0zwk.png"
+                src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281580/icon_uqlu6x.png"
                 alt="Logo" 
                 className="w-auto h-8 rounded-full"
               />

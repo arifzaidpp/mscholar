@@ -19,7 +19,7 @@ export function BannerImage() {
       <div className="relative justify-center align-middle items-center">
         <div className="relative z-10 w-[35rem] h-[35rem] rounded-full overflow-hidden transform hover:scale-105 transition-transform duration-300">
           <img
-            src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734268442/b83ab34801c7608725e622acbb0840e4_2_oyfnxo.png"
+            src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281563/b83ab34801c7608725e622acbb0840e4_2_juwtug.png"
             alt="Islamic Education"
             className="w-full h-auto object-cover rounded-full backdrop-blur-sm "
           />

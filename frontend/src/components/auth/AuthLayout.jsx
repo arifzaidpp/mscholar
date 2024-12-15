@@ -15,7 +15,7 @@ export function AuthLayout({ children, title, subtitle }) {
             animate={{ scale: 1 }}
             className="flex justify-center"
           >
-            <img className="h-12 w-auto text-blue-600 dark:text-blue-400" src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734241061/icon_uv0zwk.png" alt="icon" />
+            <img className="h-12 w-auto text-blue-600 dark:text-blue-400" src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281580/icon_uqlu6x.png" alt="icon" />
           </motion.div>
           <h2 className="mt-6 text-3xl font-extrabold text-gray-900 dark:text-white">
             {title}
