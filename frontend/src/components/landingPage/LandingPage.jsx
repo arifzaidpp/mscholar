@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { BookOpen, Users, Shield, Clock, Award, ArrowRight, Play } from 'lucide-react';
 import { Navbar } from './Navbar';
 import PartnerLogos from './about/PartnerLogos';
+import { Footer } from './Footer';
+import { Contact } from './Contact';
+import { Banner } from './banner/Banner';
 
 export function LandingPage() {
 
@@ -66,10 +69,11 @@ export function LandingPage() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      {/* /* Hero Section */}
+      {/* Hero Section */}
       <section id='home' className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900">
-        <div className="absolute inset-0 bg-grid-white/[0.05] dark:bg-grid-white/[0.02]" />
-        <div className="max-w-7xl mx-auto px-4 py-20 sm:py-32">
+        <Banner />
+        {/* <div className="absolute inset-0 bg-grid-white/[0.05] dark:bg-grid-white/[0.02]" />
+        <div className="max-w-7xl mx-auto px-4 py-20 sm:py-52">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative z-10 space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800/50 dark:bg-blue-900/50">
@@ -105,12 +109,12 @@ export function LandingPage() {
             </div>
 
             <div className="relative hidden md:block">
-              {/* Gradient overlay container */}
+              
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-[25rem] h-[25rem] bg-blue-200/80  rounded-full" />
               </div>
 
-              {/* Image container */}
+              
               <div className="relative">
                 <img
                   src="https://s3-alpha-sig.figma.com/img/bb20/2203/b83ab34801c7608725e622acbb0840e4?Expires=1734912000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mC8R6Gf~ne69nFAFtxaZdQQEUogzmh14WtQIBf9xAyUhUPqdy~6lqwdKQs7TW8gZGctlIjUxt2ZutDB2SOBKw-oT~U4nYfSEsH0MDV8NzI057hAvdpvqrn8hqNLf2j3x0r6pxEuC3g-2x-7~eoANjEp9B~elk5dA4sOFBGNxsgLinD6E1NE3CT500gMDmmVAEgq5pPVzfAEa6FSm3Uh~jl1bzpdPYUEZ2vgOHtAxd-6n8I27VTDnZQVstDXeNJHNW6iN5tDTENcb98UI16y4P5-E5LyNvlk2tnjjf-854tgg9iYjIHhNDnyY4HPBKFehaFs9qr3XDIB4~61wnsKIyw__"
@@ -120,11 +124,11 @@ export function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {/* /* Stats Section */}
-      <section className="bg-white dark:bg-gray-800 py-12">
+      <section className="bg-gray-100 dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -145,7 +149,7 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              About IslamicEdu
+              About MScholar
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
               Discover our mission to provide authentic Islamic education worldwide through
@@ -157,7 +161,7 @@ export function LandingPage() {
             <iframe
               className="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/s5z0of91dXA?si=-kthxzVgX-DfgvvA"
-              title="About IslamicEdu"
+              title="About MScholar"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -173,11 +177,11 @@ export function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id='features' className="py-20 bg-gray-50 dark:bg-gray-900">
+      <section id='features' className="py-20 bg-gray-100 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Choose IslamicEdu?
+              Why Choose MScholar?
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
               Our platform offers comprehensive Islamic education with modern learning tools
@@ -225,6 +229,13 @@ export function LandingPage() {
           </Link>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id='contact'>
+        <Contact />
+      </section>
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };

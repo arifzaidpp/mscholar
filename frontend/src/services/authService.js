@@ -1,26 +1,4 @@
-import { toast } from 'react-hot-toast';
-
 const API_URL = import.meta.env.VITE_API_URL;
-
-export const getGoogleAuthUrl = async (type = 'login') => {
-  try {
-    const response = await fetch(`${API_URL}/auth/google/url?type=${type}`, {
-      method: 'GET',
-      credentials: 'include',
-    });
-    
-    if (!response.ok) {
-      throw new Error('Failed to get Google auth URL');
-    }
-    
-    const data = await response.json();
-    return data.url;
-  } catch (error) {
-    console.error('Error getting Google auth URL:', error);
-    toast.error('Failed to initialize Google login');
-    return null;
-  }
-};
 
 export const loginWithCredentials = async (email, password) => {
   try {
@@ -49,14 +27,13 @@ export const loginWithCredentials = async (email, password) => {
 };
 
 export const registerWithCredentials = async (formData) => {
-  console.log(formData);
-  
   try {
     const response = await fetch(`${API_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
       body: JSON.stringify(formData),
     });
 
@@ -66,11 +43,7 @@ export const registerWithCredentials = async (formData) => {
       throw new Error(data.message || 'Registration failed');
     }
 
-    setAuth(data.user, data.token);
-      saveUser(data);
-      offlineStatus(!online);
-      onlineStatus(online);
-      navigate(data.user.role === 'admin' ? '/admin' : '/user');
+    return { success: true, data };
   } catch (error) {
     return { 
       success: false, 

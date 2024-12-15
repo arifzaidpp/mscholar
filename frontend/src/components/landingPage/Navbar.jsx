@@ -33,9 +33,9 @@ export function Navbar() {
               <img 
                 src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734241061/icon_uv0zwk.png"
                 alt="Logo" 
-                className="w-8 h-8 rounded-full"
+                className="w-auto h-8 rounded-full"
               />
-            MScholer
+            MScholar
             </div>
           </motion.div>
 

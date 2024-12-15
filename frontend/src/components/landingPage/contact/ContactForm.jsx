@@ -54,7 +54,7 @@ export function ContactForm() {
 
       <form 
         onSubmit={handleSubmit} 
-        className="relative space-y-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl"
+        className="relative space-y-6 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl"
       >
         <div className="space-y-4 mb-8">
           <motion.div

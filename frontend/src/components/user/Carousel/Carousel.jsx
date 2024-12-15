@@ -29,7 +29,7 @@ const Carousel = ({ slides }) => {
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <div className="aspect-[29/9] relative w-full">
+          <div className="h-96 relative w-full">
             {slides.map((slide, index) => (
               <CarouselSlide
                 key={index}

@@ -45,7 +45,7 @@ export function ContactInfo() {
       <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/10 dark:bg-purple-400/10 rounded-full blur-3xl" />
 
       {/* Content */}
-      <div className="relative space-y-10 p-6 sm:p-8 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl">
+      <div className="relative space-y-10 p-6 sm:p-8 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl">
         <div className="space-y-4">
           <motion.div
             initial={{ scale: 0.95 }}

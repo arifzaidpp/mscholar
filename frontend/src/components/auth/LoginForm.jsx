@@ -3,13 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 import { toast } from 'react-hot-toast';
-import { loginWithCredentials } from '../../services/authService';
 import { AuthLayout } from './AuthLayout';
 import { Input } from '../ui/Input';
 import { Button } from '../ui/Button';
 import { GoogleAuthButton } from './GoogleAuthButton';
+import { useAuth } from '../../hooks/useAuth';
 
 export function LoginForm() {
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -30,7 +31,7 @@ export function LoginForm() {
     setIsLoading(true);
 
     try {
-      const result = await loginWithCredentials(formData.email, formData.password);
+      const result = await login(formData.email, formData.password);
       
       if (result.success) {
         toast.success('Login successful!');

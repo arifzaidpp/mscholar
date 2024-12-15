@@ -1,19 +1,23 @@
 import { X } from 'lucide-react';
 import React, { useState } from 'react';
 import useAddCourse from '../../hooks/useAddCourse';
+import useEditCourse from '../../hooks/useEditCourse';
 
-const CourseForm = ({ onClose }) => {
+const CourseForm = ({ onClose, editData }) => {
   const { addCourse, loadingAdd, errorAdd } = useAddCourse();
+  const { editCourse, loadingEdit, errorEdit } = useEditCourse();
+  
   const [formData, setFormData] = useState({
-    title: '',
-    ageRangeStart: '',
-    ageRangeEnd: '',
-    gender: '',
-    sector: '',
-    enrollmentLink: '',
-    description: '',
-    contactEmail: '',
-    contactPhone: '',
+    title: editData?.title || '',
+    ageRangeStart: editData?.ageRangeStart || '',
+    ageRangeEnd: editData?.ageRangeEnd || '',
+    gender: editData?.gender || '',
+    sector: editData?.sector || '',
+    enrollmentLink: editData?.enrollmentLink || '',
+    mode: editData?.mode || '',
+    description: editData?.description || '',
+    contactEmail: editData?.contactEmail || '',
+    contactPhone: editData?.contactPhone || '',
   });
 
   const handleChange = (e) => {
@@ -27,7 +31,7 @@ const CourseForm = ({ onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    addCourse(formData);
+    editData ? editCourse(editData._id , formData) : addCourse(formData);
   };
 
   return (
@@ -111,9 +115,11 @@ const CourseForm = ({ onClose }) => {
               className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Select Sector</option>
-              <option value="Mixed">Secondary</option>
-              <option value="Male">Sr.secondary</option>
-              <option value="Females">Degree</option>
+              <option value="Sunny(EK)">Sunny(EK)</option>
+              <option value="Sunny(AP)">Sunny(AP)</option>
+              <option value="Mujahid">Mujahid</option>
+              <option value="Jam'a te Islami">Jam'a te Islami</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
@@ -131,6 +137,22 @@ const CourseForm = ({ onClose }) => {
               <option value="Mixed">Mixed</option>
               <option value="Male">Male</option>
               <option value="Females">Females</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Mode
+            </label>
+            <select
+              name="mode"
+              value={formData.mode}
+              onChange={handleChange}
+              className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select mode</option>
+              <option value="Online">Online</option>
+              <option value="Offline">Offline</option>
             </select>
           </div>
 
@@ -188,8 +210,7 @@ const CourseForm = ({ onClose }) => {
           <button
             type="submit"
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
-          >
-            Add Course
+          > {editData ? 'Update Course' : 'Add Course'}
           </button>
         </div>
       </form>

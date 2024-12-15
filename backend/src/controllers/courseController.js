@@ -1,10 +1,11 @@
 import Course from '../models/courseModel.js'; // Import your course model
+import User from '../models/userModel.js'; // Import your user model
 
 // Add a new course
 export const addCourse = async (req, res) => {
     console.log(req.body);
     
-    const { title, ageRangeStart, ageRangeEnd, sector, gender, enrollmentLink, description, contactEmail, contactPhone } = req.body;
+    const { title, ageRangeStart, ageRangeEnd, sector, mode, gender, enrollmentLink, description, contactEmail, contactPhone } = req.body;
     
     // Check if required fields are provided
     if (!title || !description) {
@@ -18,6 +19,7 @@ export const addCourse = async (req, res) => {
             ageRangeEnd,
             gender,
             sector,
+            mode,
             enrollmentLink,
             description,
             contactEmail,
@@ -27,6 +29,8 @@ export const addCourse = async (req, res) => {
         await newCourse.save();
         return res.status(201).json({ message: 'Course created successfully', newCourse });
     } catch (error) {
+        console.log(error);
+        
         return res.status(500).json({ error: 'Error creating course' });
     }
 };
@@ -45,10 +49,14 @@ export const getAllCourses = async (req, res) => {
 export const editCourse = async (req, res) => {
     
     const { id } = req.params;
-    const { course, institution, year, status } = req.body;
+    console.log(req.body);
+    console.log(req.params);
+    
+    
+    const { title, ageRangeStart, ageRangeEnd, sector, mode, gender, enrollmentLink, description, contactEmail, contactPhone } = req.body;
 
     // Check if required fields are provided
-    if (!course || !institution || !year ) {
+    if (!title || !description) {
         return res.status(400).json({ error: 'All required fields must be filled' });
     }
 
@@ -56,10 +64,16 @@ export const editCourse = async (req, res) => {
         const updatedCourse = await Course.findByIdAndUpdate(
             id,
             {
-                course,
-                institution,
-                year,
-                status
+                title,
+                ageRangeStart,
+                ageRangeEnd,
+                sector,
+                gender,
+                mode,
+                enrollmentLink,
+                description,
+                contactEmail,
+                contactPhone
             },
             { new: true } // Return the updated document
         );
@@ -91,5 +105,15 @@ export const deleteCourse = async (req, res) => {
         return res.status(200).json({ message: 'Course deleted successfully' });
     } catch (error) {
         return res.status(500).json({ error: 'Error deleting course' });
+    }
+};
+
+// getAllUsers
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find(); // Retrieve all users from the database
+        return res.status(200).json({ users }); // Return the list of users
+    } catch (error) {
+        return res.status(500).json({ error: 'Error fetching users' });
     }
 };

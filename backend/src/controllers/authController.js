@@ -18,7 +18,7 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
 
   if (!user) {
     res.redirect(
-      `http://localhost:5173/${state}?success=false&status=AUTH_FAILED&message=Google authentication failed`
+      `http://localhost:3000/${state}?success=false&status=AUTH_FAILED&message=Google authentication failed`
     );
   }
 
@@ -31,7 +31,7 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
   if (state === 'signup') {
     if (existingUser) {
       res.redirect(
-        `http://localhost:5173/${state}?success=false&status=ACCOUNT_EXISTS&message=Account already exists. Please login instead.`
+        `http://localhost:3000/${state}?success=false&status=ACCOUNT_EXISTS&message=Account already exists. Please login instead.`
       );
       return;
     }
@@ -48,12 +48,12 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       googleId: user.id,
     });
 
-    res.redirect(`http://localhost:5173/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
+    res.redirect(`http://localhost:3000/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
     return;
   } else if (state === 'login') {
     if (!existingUser) {
       res.redirect(
-        `http://localhost:5173/${state}?success=false&status=ACCOUNT_NOT_FOUND&message=No account found. Please sign up first.`
+        `http://localhost:3000/${state}?success=false&status=ACCOUNT_NOT_FOUND&message=No account found. Please sign up first.`
       );
       return;
     }
@@ -63,7 +63,7 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       existingUser.googleId = user.id;
       await existingUser.save();
     }
-    res.redirect(`http://localhost:5173/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
+    res.redirect(`http://localhost:3000/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
   return;
   }
 });

@@ -43,6 +43,8 @@ export const useAuth = () => {
   }, [navigate]);
 
   const login = useCallback(async (email, password) => {
+    console.log(email, password);
+    
     setIsLoading(true);
     try {
       const response = await fetch(`${API_URL}/auth/login`, {
@@ -63,7 +65,9 @@ export const useAuth = () => {
       }
 
       setUser(data.user);
-      navigate('/dashboard');
+      setAuth(data.user, data.token);
+      saveUser(data);
+      navigate(data.user.role === 'admin' ? '/admin' : '/user');
       toast.success('Login successful!');
     } catch (error) {
       toast.error(error.message);
@@ -103,12 +107,15 @@ export const useAuth = () => {
 
   const logout = useCallback(async () => {
     try {
-      await fetch(`${API_URL}/logout`, {
+      await fetch(`${API_URL}/auth/logout`, {
         method: 'GET',
         credentials: 'include',
       });
       setUser(null);
+      clearAuth();
+      statusLogout();
       navigate('/');
+      window.location.reload();
       toast.success('Logged out successfully');
     } catch (error) {
       toast.error('Logout failed');

@@ -7,7 +7,7 @@ const VideoSection = () => {
       <iframe
         className="absolute inset-0 w-full h-full"
         src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=0&controls=1&rel=0"
-        title="About IslamicEdu"
+        title="About MScholar"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

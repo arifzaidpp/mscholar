@@ -13,6 +13,9 @@ export function GoogleAuthButton() {
   const params = new URLSearchParams(location.search);
   const isEffectCalled = useRef(false); // Ref to track effect execution
 
+  console.log(params);
+  
+
   // Get individual parameters from URL
   const success = params.get('success');
   const status = params.get('status');
@@ -41,7 +44,7 @@ export function GoogleAuthButton() {
     const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
     window.history.replaceState(null, '', newUrl);
 
-  }, [success, status, message, login]);
+  }, [success, status, message, ]);
 
   const handleGoogleAuth = () => {
     const authType = isSignup ? 'signup' : 'login';

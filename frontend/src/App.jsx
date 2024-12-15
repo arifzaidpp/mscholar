@@ -11,8 +11,7 @@ import { TermsOfService } from './components/legal/TermsOfService';
 import { PrivacyPolicy } from './components/legal/PrivacyPolicy';
 import { DashboardLayout } from './components/user/layout/DashboardLayout';
 import AdminDashboard from './components/admin/layout/AdminDashboard';
-import { useAuthStore } from "./store/auth";
-import { useAuthStatus } from "./context/AuthContext";
+import { getStoredAuthData } from './utils/authUtils';
 
 const isTokenExpired = (token) => {
   if (!token) return true;
@@ -27,62 +26,26 @@ const isTokenExpired = (token) => {
   }
 };
 
-const ProtectedRoute = ({ children, allowedRoles }) => {
-  const { authUser } = useAuthStatus();
-  const navigate = useNavigate();
-  const [isModalOpen, setModalOpen] = useState(false);
-  const token = authUser?.token || null;
-  const userRole = authUser?.user?.role;
+export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
+  const { token, user } = getStoredAuthData();
 
-  useEffect(() => {
-    const checkToken = () => {
-      if (token && isTokenExpired(token)) {
-        setModalOpen(true);
-      }
-    };
-
-    checkToken();
-    const interval = setInterval(checkToken, 60000);
-    return () => clearInterval(interval);
-  }, [token]);
-
-  if (!authUser) {
-    return children;
-  }
-
-  if (!authUser) {
+  if (!token || isTokenExpired(token)) {
     return <Navigate to="/login" replace />;
   }
 
-  if (allowedRoles && isOnline && !allowedRoles.includes(userRole)) {
-    return <Navigate to="/login" replace />;
+  if (allowedRoles.length > 0 && !allowedRoles.includes(user?.role)) {
+    return <Navigate to="/unauthorized" replace />;
   }
 
-  return (
-    <>
-      {isModalOpen && (
-        <ConfirmationModal
-          isOpen={isModalOpen}
-          data={{
-            title: "Session Expired",
-            message: "Your session has expired. Please log in again.",
-            onConfirm: async () => {
-              await logout();
-              navigate("/login", { replace: true });
-            },
-            buttonLabel: "OK",
-            showCancel: false
-          }}
-        />
-      )}
-      {children}
-    </>
-  );
+  return children;
 };
 
 function App() {
-  const user = useAuthStore((state) => state.user);
-  console.log(user);
+
+  const { token, user } = getStoredAuthData();
+  console.log(token, user);
+  
+  const isAuthenticated = token && !isTokenExpired(token);
 
   return (
     <Router>
@@ -92,33 +55,57 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
 
-            <Route path="/login" element={!user ? (
-              <div><ThemeToggle /><LoginForm /></div>
-            ) : (
-              <Navigate to={`/${user.role}`} replace />
-            )} />
+            <Route 
+              path="/login" 
+              element={
+                isAuthenticated && user ? (
+                  <Navigate to={`/${user?.role || 'user'}`} replace />
+                ) : (
+                  <div><ThemeToggle /><LoginForm /></div>
+                )
+              } 
+            />
 
-            <Route path="/signup" element={!user ? (
-              <div><ThemeToggle /><SignupForm /></div>
-            ) : (
-              <Navigate to={`/${user.role}`} replace />
-            )} />
+            <Route 
+              path="/signup" 
+              element={
+                isAuthenticated && user ? (
+                  <Navigate to={`/${user?.role || 'user'}`} replace />
+                ) : (
+                  <div><ThemeToggle /><SignupForm /></div>
+                )
+              } 
+            />
 
             <Route path="/forgot-password" element={<div><ThemeToggle /><ForgotPasswordForm /></div>} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
 
+            <Route 
+              path="/user/*" 
+              element={
+                <ProtectedRoute allowedRoles={['user']}>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              } 
+            />
 
-            <Route path="/user" element={<ProtectedRoute allowedRoles={["user"]}>
-              <DashboardLayout />
-            </ProtectedRoute>}>
-              <Route path="*" element={<h1>Not Found</h1>} />
-            </Route>
+            <Route 
+              path="/admin/*" 
+              element={
+                <ProtectedRoute allowedRoles={['admin']}>
+                  <AdminDashboard page='course'/>
+                </ProtectedRoute>
+              } 
+            />
 
-            <Route path='/admin/*' element={<ProtectedRoute allowedRoles={["user"]}>
-              <AdminDashboard />
-            </ProtectedRoute>} />
+            <Route path='/admin/users' element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminDashboard page='users' />
+              </ProtectedRoute>
+            } />
 
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </AuthProvider>

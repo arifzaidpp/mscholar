@@ -26,7 +26,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-800 pt-16 pb-8">
+    <footer className="bg-gray-100 dark:bg-gray-800 pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -37,9 +37,14 @@ export function Footer() {
               className="space-y-6"
             >
               <div className="flex items-center gap-2">
-                <Brain className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                
+                <img 
+                src="https://res.cloudinary.com/drnexn1qc/image/upload/v1734241061/icon_uv0zwk.png"
+                alt="Logo" 
+                className="w-auto h-8 rounded-full"
+              />
                 <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  QuizMaster
+                  MScholar
                 </span>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
@@ -139,7 +144,7 @@ export function Footer() {
 
           <div className="border-t border-gray-200 dark:border-gray-800 pt-8">
             <div className="text-center text-gray-600 dark:text-gray-400">
-              <p>© {currentYear} QuizMaster. All rights reserved.</p>
+              <p>© {currentYear} MScholar. All rights reserved.</p>
             </div>
           </div>
         </div>

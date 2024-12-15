@@ -5,6 +5,12 @@ import { Plus } from 'lucide-react';
 
 const CourseManagement = () => {
   const [isAddingCourse, setIsAddingCourse] = useState(false);
+  const [editData, setEditData] = useState(null);
+
+  function handleEditCourse(course)  {
+    setIsAddingCourse(true);
+    setEditData(course);
+  }
 
   return (
     <div className="space-y-6">
@@ -24,9 +30,9 @@ const CourseManagement = () => {
       </div>
 
       {isAddingCourse ? (
-        <CourseForm onClose={() => setIsAddingCourse(false)} />
+        <CourseForm onClose={() => setIsAddingCourse(false)} editData={editData} />
       ) : (
-        <CourseList />
+        <CourseList onEditCourse={handleEditCourse} />
       )}
     </div>
   );

@@ -1,17 +1,20 @@
 import React from 'react';
-import { Edit2, Trash2, Eye } from 'lucide-react';
+import { Edit2, Trash2 } from 'lucide-react';
 import useGetAllCourses from '../../hooks/useGetCourse';
 import useDeleteCourse from '../../hooks/useDeleteCourse';
 
-const CourseList = () => {
+const CourseList = ({ onEditCourse }) => {
   const { courses, loading, error } = useGetAllCourses();
   const { deleteCourse, loadingDelete, errorDelete } = useDeleteCourse();
 
   const handleDeleteCourse = (id) => {
     console.log(id);
-    
     console.log('delete course');
     deleteCourse(id);
+  }
+
+  const handleEditCourse = (course) => {
+    onEditCourse(course);
   }
 
   return (
@@ -63,7 +66,8 @@ const CourseList = () => {
                   </div>
                 </td>
                 <td className="px-6 py-4 text-right space-x-2">
-                  <button className="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400">
+                  <button className="text-green-600 hover:text-green-800 dark:text-green-500 dark:hover:text-green-400"
+                  onClick={() => handleEditCourse(course)}>
                     <Edit2 size={18} />
                   </button>
                   <button className="text-red-600 hover:text-red-800 dark:text-red-500 dark:hover:text-red-400"
