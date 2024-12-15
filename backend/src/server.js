@@ -1,3 +1,4 @@
+import path from "path";
 import dotenv from 'dotenv';
 import express from 'express';
 import cookieParser from 'cookie-parser';
@@ -15,6 +16,9 @@ import passport from './config/passport.js';
 // Load env vars
 dotenv.config();
 
+const __dirname = path.resolve();
+
+
 // Connect to database
 connectDatabase();
 
@@ -24,13 +28,19 @@ const app = express();
 app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://your-domain.com' :
-    'http://localhost:3000', 
+    ? 'https://mschloar.onrender.com/' :
+    'http://localhost:3000',
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials: true,
 }));
+
+app.use(express.static(path.join(__dirname,"/frontend/dist")))
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname.replace('/backend', ''), "frontend", "dist", "index.html"))
+})
 
 // Body parser
 app.use(express.json());

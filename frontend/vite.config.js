@@ -14,5 +14,12 @@ export default defineConfig({
         target:"http://localhost:5000"
       }
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name]-[hash][extname]',
+      },
+    },
+  },
 });
