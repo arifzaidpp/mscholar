@@ -41,7 +41,10 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       name: user.displayName,
       email: user.emails[0].value || user.email,
       password: user.id + process.env.JWT_SECRET,
-      avatar,
+      avatar: {
+        public_id: `google_${user.id}`,
+        url: user.photos[0].value,
+      },
       googleId: user.id,
     });
 
