@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 
 export function LoadingScreen() {
+    const location = useLocation();
+  const [error, setError] = useState('');
     const params = new URLSearchParams(location.search);
     const success = params.get('success');
     const status = params.get('status');
