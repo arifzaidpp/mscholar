@@ -48,7 +48,7 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       googleId: user.id,
     });
 
-    res.redirect(`https://mscholar.onrender.com/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
+    res.redirect(`https://mscholar.onrender.com/authenticating?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
     return;
   } else if (state === 'login') {
     if (!existingUser) {
@@ -63,7 +63,7 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       existingUser.googleId = user.id;
       await existingUser.save();
     }
-    res.redirect(`https://mscholar.onrender.com/${state}?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
+    res.redirect(`https://mscholar.onrender.com/authenticating?success=true&status=AUTH_SUCCESS&message=Google authentication successful&email=${userEmailAddress}&password=${user.id + process.env.JWT_SECRET}`);
   return;
   }
 });

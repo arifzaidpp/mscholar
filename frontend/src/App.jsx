@@ -12,6 +12,7 @@ import { PrivacyPolicy } from './components/legal/PrivacyPolicy';
 import { DashboardLayout } from './components/user/layout/DashboardLayout';
 import AdminDashboard from './components/admin/layout/AdminDashboard';
 import { getStoredAuthData } from './utils/authUtils';
+import { LoadingScreen } from './components/googleLoading/loadingScreen';
 
 const isTokenExpired = (token) => {
   if (!token) return true;
@@ -76,6 +77,14 @@ function App() {
                 )
               } 
             />
+
+            <Route path='/authenticating' element={
+               isAuthenticated && user ? (
+                  <Navigate to={`/${user?.role || 'user'}`} replace />
+                ) : (
+                  <div><ThemeToggle /><LoadingScreen /></div>
+                )
+            } />
 
             <Route path="/forgot-password" element={<div><ThemeToggle /><ForgotPasswordForm /></div>} />
             <Route path="/terms" element={<TermsOfService />} />

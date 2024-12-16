@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Eye, EyeOff, Mail, Lock, ArrowRight } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { AuthLayout } from './AuthLayout';
@@ -31,14 +30,8 @@ export function LoginForm() {
     setIsLoading(true);
 
     try {
-      const result = await login(formData.email, formData.password);
+      await login(formData.email, formData.password);
       
-      if (result.success) {
-        toast.success('Login successful!');
-        navigate('/dashboard');
-      } else {
-        toast.error(result.error);
-      }
     } catch (error) {
       toast.error('Login failed. Please try again.');
     } finally {

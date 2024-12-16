@@ -17,6 +17,7 @@ export function SignupForm() {
     name: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +31,10 @@ export function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      toast.error('Passwords do not match.');
+      return;
+    }
     setIsLoading(true);
 
     try {
@@ -79,6 +84,30 @@ export function SignupForm() {
           required
           icon={Lock}
           placeholder="Create a password"
+          rightElement={
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            >
+              {showPassword ? (
+                <EyeOff className="h-5 w-5" />
+              ) : (
+                <Eye className="h-5 w-5" />
+              )}
+            </button>
+          }
+        />
+
+        <Input
+          label="Confirm password"
+          type={showPassword ? 'text' : 'password'}
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+          icon={Lock}
+          placeholder="Confirm your password"
           rightElement={
             <button
               type="button"

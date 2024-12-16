@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { toast } from 'react-hot-toast';
-import { useAuth } from '../../hooks/useAuth';
 
 export function GoogleAuthButton() {
   const location = useLocation();
-  const navigate = useNavigate();
-  const { login } = useAuth();
   const [error, setError] = useState('');
   const isSignup = location.pathname === '/signup';
   const params = new URLSearchParams(location.search);
@@ -37,7 +34,6 @@ export function GoogleAuthButton() {
       toast.error('Authentication failed.');
     } else if (success === 'true') {
       setError('');
-      login(params.get('email'), params.get('password'));
     }
 
     // Clear query parameters in the URL without reloading the page
