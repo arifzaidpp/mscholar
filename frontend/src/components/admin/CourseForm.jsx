@@ -115,8 +115,8 @@ const CourseForm = ({ onClose, editData }) => {
               className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Select Sector</option>
-              <option value="Sunny(EK)">Sunny(EK)</option>
-              <option value="Sunny(AP)">Sunny(AP)</option>
+              <option value="sunni(EK)">sunni(EK)</option>
+              <option value="sunni(AP)">sunni(AP)</option>
               <option value="Mujahid">Mujahid</option>
               <option value="Jam'a te Islami">Jam'a te Islami</option>
               <option value="Others">Others</option>
