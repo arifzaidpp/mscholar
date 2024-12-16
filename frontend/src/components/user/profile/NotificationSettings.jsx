@@ -5,7 +5,7 @@ import { Bell, Mail, MessageSquare, Star } from 'lucide-react';
 export function NotificationSettings() {
   const [settings, setSettings] = useState({
     emailNotifications: true,
-    quizReminders: true,
+    mscholarReminders: true,
     resultAlerts: true,
     marketingEmails: false,
   });
@@ -22,7 +22,7 @@ export function NotificationSettings() {
       id: 'emailNotifications',
       icon: Mail,
       title: 'Email Notifications',
-      description: 'Receive notifications about your quiz activity via email',
+      description: 'Receive notifications about your mscholar activity via email',
     },
     {
       id: 'marketingEmails',

@@ -11,7 +11,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: 'Email',
-    content: 'support@quizmaster.com',
+    content: 'support@mscholar.com',
     description: "We'll respond within 24 hours",
   },
   {

@@ -34,7 +34,7 @@ export function TermsOfService() {
 
             <h2 className="text-xl font-semibold mt-8 mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              By accessing and using QuizMaster, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
+              By accessing and using MScholar, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our service.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">2. User Accounts</h2>
@@ -44,7 +44,7 @@ export function TermsOfService() {
 
             <h2 className="text-xl font-semibold mt-8 mb-4">3. Content Guidelines</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              Users must not create or share quizzes that contain:
+              Users must not create or share mscholarzes that contain:
             </p>
             <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300">
               <li>Inappropriate or offensive content</li>
@@ -60,7 +60,7 @@ export function TermsOfService() {
 
             <h2 className="text-xl font-semibold mt-8 mb-4">5. Intellectual Property</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              The service and its original content, features, and functionality are owned by QuizMaster and are protected by international copyright, trademark, and other intellectual property laws.
+              The service and its original content, features, and functionality are owned by MScholar and are protected by international copyright, trademark, and other intellectual property laws.
             </p>
 
             <h2 className="text-xl font-semibold mt-8 mb-4">6. Termination</h2>
@@ -70,7 +70,7 @@ export function TermsOfService() {
 
             <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
               <p className="text-sm text-blue-600 dark:text-blue-400">
-                For any questions about these Terms of Service, please contact us at support@quizmaster.com
+                For any questions about these Terms of Service, please contact us at support@mscholar.com
               </p>
             </div>
           </div>

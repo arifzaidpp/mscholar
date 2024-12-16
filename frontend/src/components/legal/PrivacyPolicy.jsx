@@ -87,7 +87,7 @@ export function PrivacyPolicy() {
 
             <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
               <p className="text-sm text-blue-600 dark:text-blue-400">
-                For any questions about our Privacy Policy, please contact us at privacy@quizmaster.com
+                For any questions about our Privacy Policy, please contact us at privacy@mscholar.com
               </p>
             </div>
           </div>

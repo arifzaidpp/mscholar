@@ -48,7 +48,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                Empowering educators with secure and engaging quiz solutions.
+                Empowering educators with secure and engaging mscholar solutions.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
@@ -124,7 +124,7 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
                 <span className="text-gray-600 dark:text-gray-300">
-                  support@quizmaster.com
+                  support@mscholar.com
                 </span>
               </div>
               <div className="flex items-start space-x-3">
