@@ -11,11 +11,19 @@ import { UserProfile } from '../profile/UserProfile';
 export function DashboardLayout(page) {
   const { courses, loading, error } = useGetAllCourses();
   const [filters, setFilters] = useState({
-    ageRange: 'All Ages',
-    gender: 'All'
+    search: '',
+    ageRange: 'All Ages',    
+    gender: 'All',            
+    modeOfEducation: 'All',    
+    sector: 'All'              
   });
 
   const filteredCourses = filterCourses(courses, filters);
+  console.log('filteredCourses', filteredCourses);
+
+  console.log('filters', filters);
+  
+  
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
