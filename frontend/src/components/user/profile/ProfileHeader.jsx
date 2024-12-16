@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, X } from 'lucide-react';
+import { Camera } from 'lucide-react';
+import useUpdateImage from '../../../hooks/useUpdateImage';
 
 export function ProfileHeader(profile) {
-  const [isUploading, setIsUploading] = useState(false);
+  const { updateImage, loading } = useUpdateImage();
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setIsUploading(true);
-      // Simulate upload delay
-      setTimeout(() => {
-        setIsUploading(false);
-      }, 1500);
+  const handleImageUpload = async (e) => {
+    if (confirm('Are you sure you want to change your profile picture?')) {
+      const file = e.target.files?.[0];
+      if (file) {
+        await updateImage(file, profile._id);
+      }
     }
   };
-
-  console.log(profile);
-  
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
@@ -37,7 +33,7 @@ export function ProfileHeader(profile) {
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50 group-hover:opacity-100 opacity-0 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <label className="cursor-pointer">
                   <input
                     type="file"
@@ -48,12 +44,12 @@ export function ProfileHeader(profile) {
                   <Camera className="w-6 h-6 text-white" />
                 </label>
               </div>
-              {isUploading && (
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
-                </div>
-              )}
             </div>
+            {loading && (
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-full">
+                <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin" />
+              </div>
+            )}
           </div>
         </div>
 
