@@ -29,7 +29,7 @@ const app = express();
 app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://mschloar.onrender.com' 
+    ? 'https://mscholar.onrender.com' 
     : 'http://localhost:3000',
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
