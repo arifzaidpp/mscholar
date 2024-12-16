@@ -25,22 +25,31 @@ connectDatabase();
 const app = express();
 
 // Security
-app.use(helmet());
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? 'https://mschloar.onrender.com/' :
-    'http://localhost:3000',
-  credentials: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
-  credentials: true,
-}));
+// app.use(helmet());
+// app.use(cors({
+//   origin: process.env.NODE_ENV === 'production' 
+//     ? 'https://mschloar.onrender.com/' :
+//     'http://localhost:3000',
+//   credentials: true,
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   allowedHeaders: 'Content-Type,Authorization',
+//   credentials: true,
+// }));
 
-app.use(express.static(path.join(__dirname,"/frontend/dist")))
+app.use(express.static(path.join(__dirname.replace('/backend', ''),"/frontend/dist")))
 
 app.get("*",(req,res)=>{
     res.sendFile(path.join(__dirname.replace('/backend', ''), "frontend", "dist", "index.html"))
 })
+
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; img-src 'self' data: https://res.cloudinary.com; frame-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-eval';"
+  );
+  next();
+});
+
 
 // Body parser
 app.use(express.json());
