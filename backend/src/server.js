@@ -12,6 +12,7 @@ import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import passport from './config/passport.js';
+import crypto from 'crypto';
 
 // Load env vars
 dotenv.config();
@@ -28,13 +29,13 @@ const app = express();
 app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://mschloar.onrender.com/' :
-    'http://localhost:3000',
+    ? 'https://mschloar.onrender.com' 
+    : 'http://localhost:3000',
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
-  credentials: true,
 }));
+
 
 // Body parser
 app.use(express.json());
@@ -83,7 +84,7 @@ const PORT = process.env.PORT || 5000;
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; img-src 'self' data: https://res.cloudinary.com https://images.unsplash.com https://www.svgrepo.com https://lh3.googleusercontent.com; frame-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-eval';"
+    "default-src 'self'; img-src 'self' data: https://res.cloudinary.com https://images.unsplash.com https://www.svgrepo.com https://lh3.googleusercontent.com; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
   );
   next();
 });
