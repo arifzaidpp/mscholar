@@ -106,6 +106,8 @@ export const useAuth = () => {
   }, [navigate]);
 
   const logout = useCallback(async () => {
+    console.log('logout');
+    
     try {
       await fetch(`${API_URL}/auth/logout`, {
         method: 'GET',

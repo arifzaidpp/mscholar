@@ -147,6 +147,8 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Logout user => /api/v1/auth/logout
 export const logout = catchAsyncErrors(async (req, res, next) => {
+  console.log('Logged out');
+  
   res.cookie('token', null, {
     expires: new Date(Date.now()),
     httpOnly: true,

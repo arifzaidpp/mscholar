@@ -25,22 +25,16 @@ connectDatabase();
 const app = express();
 
 // Security
-// app.use(helmet());
-// app.use(cors({
-//   origin: process.env.NODE_ENV === 'production' 
-//     ? 'https://mschloar.onrender.com/' :
-//     'http://localhost:3000',
-//   credentials: true,
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   allowedHeaders: 'Content-Type,Authorization',
-//   credentials: true,
-// }));
-
-app.use(express.static(path.join(__dirname.replace('/backend', ''),"/frontend/dist")))
-
-app.get("*",(req,res)=>{
-    res.sendFile(path.join(__dirname.replace('/backend', ''), "frontend", "dist", "index.html"))
-})
+app.use(helmet());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://mschloar.onrender.com/' :
+    'http://localhost:3000',
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
+}));
 
 app.use((req, res, next) => {
   res.setHeader(
@@ -49,6 +43,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+
 
 
 // Body parser
@@ -93,6 +89,12 @@ app.use('/api/v1/user', userRoutes);
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname.replace('/backend', ''),"/frontend/dist")))
+
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname.replace('/backend', ''), "frontend", "dist", "index.html"))
+})
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
