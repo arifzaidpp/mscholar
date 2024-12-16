@@ -4,6 +4,9 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      lineClamp: {
+        8: '8',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'linear-to-t': 'linear-gradient(to top, rgba(255,255,255,1) 30%,rgba(0,0,0,0) 100%))',
@@ -42,5 +45,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };
