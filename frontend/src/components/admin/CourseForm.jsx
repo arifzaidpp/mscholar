@@ -11,12 +11,15 @@ const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
 
   useEffect(() => {
     if (courses && Array.isArray(courses)) {
-      const validProviders = courses
-        .map(course => course.courseProvider)
-        .filter(provider => provider && provider.trim() !== '');
-      setCourseProviders(validProviders);
+      const validProviders = new Set(
+        courses
+          .map(course => course.courseProvider)
+          .filter(provider => provider && provider.trim() !== '')
+      );
+      setCourseProviders(Array.from(validProviders)); // Convert the Set back to an array
     }
   }, [courses]);
+
 
   console.log(courseProviders);
 
