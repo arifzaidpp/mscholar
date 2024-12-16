@@ -23,13 +23,6 @@ const contactInfo = [
     description: 'Learning City, ED 12345',
     gradient: 'from-orange-500 to-red-500',
   },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    content: 'Mon - Fri, 9:00 - 18:00',
-    description: 'Weekend support available for emergencies',
-    gradient: 'from-green-500 to-emerald-500',
-  },
 ];
 
 export function ContactInfo() {
@@ -45,8 +38,8 @@ export function ContactInfo() {
       <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-purple-500/10 dark:bg-purple-400/10 rounded-full blur-3xl" />
 
       {/* Content */}
-      <div className="relative space-y-10 p-6 sm:p-8 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl">
-        <div className="space-y-4">
+      <div className="relative space-y-3 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl">
+        <div className="space-y-2">
           <motion.div
             initial={{ scale: 0.95 }}
             whileInView={{ scale: 1 }}
@@ -61,12 +54,12 @@ export function ContactInfo() {
                        dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
             Get in Touch
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
             Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
           </p>
         </div>
 
-        <div className="grid gap-5">
+        <div className="grid gap-3">
           {contactInfo.map((item, index) => (
             <motion.div
               key={item.title}
@@ -78,25 +71,25 @@ export function ContactInfo() {
             >
               {/* Hover effect background */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 
-                           dark:from-blue-400/20 dark:to-indigo-400/20 rounded-xl opacity-0 
+                           dark:from-blue-400/20 dark:to-indigo-400/20 rounded-lg opacity-0 
                            group-hover:opacity-100 transition-opacity blur-xl" />
               
-              <div className="relative flex items-start space-x-4 p-4 rounded-xl 
+              <div className="relative flex items-start space-x-4 p-3 px-4 rounded-lg 
                            bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm
                            transition-transform duration-300 hover:-translate-y-1">
                 <div className="flex-shrink-0">
-                  <div className={`p-3 bg-gradient-to-br ${item.gradient} rounded-xl 
+                  <div className={`p-2 bg-gradient-to-br ${item.gradient} rounded-lg 
                                 transform transition-transform group-hover:scale-110`}>
-                    <item.icon className="w-6 h-6 text-white" />
+                    <item.icon className="w-5 h-5 text-white" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white 
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white 
                                group-hover:text-blue-600 dark:group-hover:text-blue-400 
                                transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-gray-900 dark:text-gray-100 font-medium mt-1">
+                  <p className="text-gray-900 dark:text-gray-100 text-sm font-medium mt-1">
                     {item.content}
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
