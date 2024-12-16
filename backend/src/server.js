@@ -83,7 +83,7 @@ const PORT = process.env.PORT || 5000;
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; img-src 'self' data: https://res.cloudinary.com https://images.unsplash.com https://www.svgrepo.com; frame-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-eval';"
+    "default-src 'self'; img-src 'self' data: https://res.cloudinary.com https://images.unsplash.com https://www.svgrepo.com https://lh3.googleusercontent.com; frame-src 'self' https://www.youtube.com; script-src 'self' 'unsafe-eval';"
   );
   next();
 });
