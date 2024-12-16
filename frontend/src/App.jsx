@@ -85,10 +85,16 @@ function App() {
               path="/user/*" 
               element={
                 <ProtectedRoute allowedRoles={['user']}>
-                  <DashboardLayout />
+                  <DashboardLayout page="dashboard" />
                 </ProtectedRoute>
               } 
             />
+
+            <Route path='/user/profile' element={
+              <ProtectedRoute allowedRoles={['user']}>
+                <DashboardLayout page="profile" />
+              </ProtectedRoute>
+            } />
 
             <Route 
               path="/admin/*" 

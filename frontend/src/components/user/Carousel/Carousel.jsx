@@ -22,7 +22,7 @@ const Carousel = ({ slides }) => {
   }, [nextSlide, isHovering]);
 
   return (
-    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 py-8">
+    <section className="w-full bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 py-8 pt-20">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div 
           className="relative rounded-2xl overflow-hidden shadow-2xl group"

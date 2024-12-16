@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Mail, Phone, MapPin, Globe, Save } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Globe, Save, CalendarDays } from 'lucide-react';
 
-export function PersonalInfo() {
+export function PersonalInfo(user) {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    location: 'San Francisco, CA',
-    website: 'https://johndoe.dev',
-    bio: 'Passionate software developer with 5+ years of experience in web development.',
+    name: user ? user.name : '',
+    email: user ? user.email : '',
+    phone: user ? user.phone : '',
+    age: user ? user.age : '',
+    address: user ? user.address : '',
+    bio: user ? user.bio : '',
   });
 
   const handleSubmit = (e) => {
@@ -18,6 +18,9 @@ export function PersonalInfo() {
     setIsEditing(false);
     // Handle form submission
   };
+
+  console.log('User:', user);
+  
 
   return (
     <motion.div
@@ -47,8 +50,8 @@ export function PersonalInfo() {
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 disabled={!isEditing}
                 className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
@@ -67,8 +70,7 @@ export function PersonalInfo() {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                disabled={!isEditing}
+                disabled={true}
                 className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
                          disabled:bg-gray-100 dark:disabled:bg-gray-800
@@ -98,14 +100,14 @@ export function PersonalInfo() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Location
+              Age
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <CalendarDays className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
-                type="text"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                type="number"
+                value={formData.age}
+                onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                 disabled={!isEditing}
                 className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white
@@ -117,14 +119,14 @@ export function PersonalInfo() {
 
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Website
+              Address
             </label>
             <div className="relative">
-              <Globe className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <input
                 type="url"
-                value={formData.website}
-                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 disabled={!isEditing}
                 className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
                          bg-white dark:bg-gray-700 text-gray-900 dark:text-white

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Camera, X } from 'lucide-react';
 
-export function ProfileHeader() {
+export function ProfileHeader(profile) {
   const [isUploading, setIsUploading] = useState(false);
 
   const handleImageUpload = (e) => {
@@ -15,6 +15,9 @@ export function ProfileHeader() {
       }, 1500);
     }
   };
+
+  console.log(profile);
+  
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
@@ -30,7 +33,7 @@ export function ProfileHeader() {
           <div className="relative group">
             <div className="w-32 h-32 rounded-full border-4 border-white dark:border-gray-800 overflow-hidden">
               <img
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                src={profile.avatar.url}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -57,10 +60,10 @@ export function ProfileHeader() {
         {/* User Info */}
         <div className="pt-20">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-            John Doe
+            {profile.name}
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Senior Software Developer
+            {profile.email}
           </p>
         </div>
       </div>

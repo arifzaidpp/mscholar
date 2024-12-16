@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, Search, User, LogOut } from 'lucide-react';
+import { Bell, Search, User, LogOut, Menu } from 'lucide-react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '../../../hooks/useTheme';
 
@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const handleUserClick = () => {
     setIsOpen(false);
-    navigate('/dashboard/profile');
+    navigate('/user/profile');
   }
 
   const handleLogout = () => {
@@ -28,8 +28,20 @@ const Navbar = () => {
     logout();
   }
 
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'Features', href: '#features' },
+    { name: 'About', href: '#about' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const handleLogin = () => {
+    navigate('/login');
+  }
+
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-md transition-colors">
+    <>
+    <nav className="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
@@ -37,9 +49,9 @@ const Navbar = () => {
               <img
                 src="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281580/icon_uqlu6x.png"
                 alt="Logo"
-                className="w-8 h-8 rounded-full"
+                className="w-auto h-8 rounded-full"
               />
-              <span className="font-bold text-blue-900 dark:text-blue-100">MScholar</span>
+              <span className="flex-shrink-0 font-bold text-xl text-blue-600 dark:text-blue-400">MScholar</span>
             </div>
 
             <div className="hidden md:flex items-center gap-6">
@@ -104,6 +116,10 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
+
+    
+    </>
   );
 };
 

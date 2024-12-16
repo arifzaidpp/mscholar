@@ -36,15 +36,26 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
       return;
     }
 
+    //upload avatar to cloudinary
+    let avatar = {
+      public_id: 'v1734282841/pngwing.com_ht7dbd',
+      url: 'https://res.cloudinary.com/dkykfxzpx/image/upload/v1734282841/pngwing.com_ht7dbd.png',
+    };
+
+    if (user.photos && user.photos.length > 0) {
+      const result = await uploadToCloudinary(user.photos[0].value);
+      avatar = {
+        public_id: result.public_id,
+        url: result.secure_url,
+      };
+    }
+
     // Create new user
     const newUser = await User.create({
       name: user.displayName,
       email: user.emails[0].value || user.email,
       password: user.id + process.env.JWT_SECRET,
-      avatar: {
-        public_id: `google_${user.id}`,
-        url: user.photos[0].value,
-      },
+      avatar,
       googleId: user.id,
     });
 

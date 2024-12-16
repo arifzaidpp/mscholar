@@ -25,18 +25,6 @@ export function NotificationSettings() {
       description: 'Receive notifications about your quiz activity via email',
     },
     {
-      id: 'quizReminders',
-      icon: Bell,
-      title: 'Quiz Reminders',
-      description: 'Get reminded about upcoming and pending quizzes',
-    },
-    {
-      id: 'resultAlerts',
-      icon: Star,
-      title: 'Result Alerts',
-      description: 'Be notified when your quiz results are available',
-    },
-    {
       id: 'marketingEmails',
       icon: MessageSquare,
       title: 'Marketing Emails',
