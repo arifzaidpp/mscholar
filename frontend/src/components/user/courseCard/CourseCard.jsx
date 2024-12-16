@@ -35,9 +35,20 @@ const CourseCard = ({ course }) => {
       <div>
         <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-1">{course.title}</h3>
         <p className='text-base text-gray-800 dark:text-gray-300 mb-2'>{course.sector}</p>
-        <div className="flex gap-4 mb-3">
+        <div className="flex flex-wrap gap-4 mb-3">
+          {course.courseProvider && (
+            <span className="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200 px-3 py-1 rounded-full text-sm">
+              {course.courseProvider}
+            </span>
+          )}
           <span className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200 px-3 py-1 rounded-full text-sm">
-            {course.ageRangeStart} - {course.ageRangeEnd}
+            {course.ageRangeStart && course.ageRangeEnd
+              ? `${course.ageRangeStart} - ${course.ageRangeEnd} years`
+              : course.ageRangeStart
+                ? `${course.ageRangeStart}+ years`
+                : course.ageRangeEnd
+                  ? `Up to ${course.ageRangeEnd} years`
+                  : 'All Ages'}
           </span>
           <span className="bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 px-3 py-1 rounded-full text-sm">
             {course.gender}
@@ -46,6 +57,7 @@ const CourseCard = ({ course }) => {
             {course.mode}
           </span>
         </div>
+
 
         {/* Description with truncation */}
         <p

@@ -26,7 +26,8 @@ export const filterCourses = (courses, filters) => {
     const sectorMatch = filters.sector === 'All' || course.sector === filters.sector;
 
     // Search match logic
-    const searchMatch = course.title.toLowerCase().includes(filters.search.toLowerCase());
+    const searchMatch = course.title.toLowerCase().includes(filters.search.toLowerCase()) ||
+      course.courseProvider?.toLowerCase().includes(filters.search.toLowerCase());
 
     return ageMatch && genderMatch && modeMatch && sectorMatch && searchMatch;
   });
