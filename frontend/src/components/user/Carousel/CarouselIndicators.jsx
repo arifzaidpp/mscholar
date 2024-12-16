@@ -14,11 +14,6 @@ const CarouselIndicators = ({ slides, currentSlide, onClick }) => {
           }`}
           aria-label={`Go to slide ${index + 1}`}
         >
-          <span className={`absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-white/90 text-blue-900 text-xs rounded opacity-0 transition-opacity ${
-            currentSlide === index ? 'group-hover:opacity-100' : ''
-          }`}>
-            {index + 1}
-          </span>
         </button>
       ))}
     </div>
