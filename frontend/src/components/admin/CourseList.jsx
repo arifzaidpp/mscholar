@@ -1,10 +1,8 @@
 import React from 'react';
 import { Edit2, Trash2 } from 'lucide-react';
-import useGetAllCourses from '../../hooks/useGetCourse';
 import useDeleteCourse from '../../hooks/useDeleteCourse';
 
-const CourseList = ({ onEditCourse }) => {
-  const { courses, loading, error } = useGetAllCourses();
+const CourseList = ({ onEditCourse, courses }) => {
   const { deleteCourse, loadingDelete, errorDelete } = useDeleteCourse();
 
   const handleDeleteCourse = (id) => {
