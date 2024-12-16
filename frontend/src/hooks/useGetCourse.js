@@ -32,7 +32,7 @@ const useGetAllCourses = () => {
         fetchCourses(); // Fetch courses on component mount
     }, []);
 
-    return { courses, loading, error };
+    return { fetchCourses, courses, loading, error };
 };
 
 export default useGetAllCourses;

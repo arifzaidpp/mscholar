@@ -7,6 +7,7 @@ const courseSchema = new mongoose.Schema({
     ageRangeEnd: { type: Number, },
     sector: { type: String,  },
     mode: { type: String, },
+    courseProvider: { type: String, },
     enrollmentLink: { type: String,},
     gender: { type: String, },
     contactEmail: { type: String, },

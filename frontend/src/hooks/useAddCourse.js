@@ -26,8 +26,8 @@ const useAddCourse = () => {
             }
 
             const data = await response.json();
+            toast.success("Course added successfully");
 
-            window.location.replace('/admin/courses');
             return data; // return response data if necessary
         } catch (err) {
             setErrorAdd(err.message);

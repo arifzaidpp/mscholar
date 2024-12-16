@@ -26,8 +26,6 @@ const useDeleteCourse = () => {
             }
 
             const data = await response.json();
-            // Reload the page after successful deletion
-            window.location.reload();
             
             toast.success("Course deleted successfully");
             return data; // return response data if necessary

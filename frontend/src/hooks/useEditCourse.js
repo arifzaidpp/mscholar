@@ -30,8 +30,7 @@ const useEditCourse = () => {
             // Save flag to sessionStorage before reload
             sessionStorage.setItem('courseUpdated', 'true');
 
-            // Reload the page
-            window.location.replace('/admin');
+            toast.success("Course updated successfully");
 
             return data;
         } catch (err) {

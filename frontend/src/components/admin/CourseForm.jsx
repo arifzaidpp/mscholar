@@ -1,12 +1,26 @@
 import { X } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useAddCourse from '../../hooks/useAddCourse';
 import useEditCourse from '../../hooks/useEditCourse';
 
-const CourseForm = ({ onClose, editData }) => {
+const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
   const { addCourse, loadingAdd, errorAdd } = useAddCourse();
   const { editCourse, loadingEdit, errorEdit } = useEditCourse();
-  
+
+  const [courseProviders, setCourseProviders] = useState([]);
+
+  useEffect(() => {
+    if (courses && Array.isArray(courses)) {
+      const validProviders = courses
+        .map(course => course.courseProvider)
+        .filter(provider => provider && provider.trim() !== '');
+      setCourseProviders(validProviders);
+    }
+  }, [courses]);
+
+  console.log(courseProviders);
+
+
   const [formData, setFormData] = useState({
     title: editData?.title || '',
     ageRangeStart: editData?.ageRangeStart || '',
@@ -15,6 +29,7 @@ const CourseForm = ({ onClose, editData }) => {
     sector: editData?.sector || '',
     enrollmentLink: editData?.enrollmentLink || '',
     mode: editData?.mode || '',
+    courseProvider: editData?.courseProvider || '',
     description: editData?.description || '',
     contactEmail: editData?.contactEmail || '',
     contactPhone: editData?.contactPhone || '',
@@ -28,16 +43,19 @@ const CourseForm = ({ onClose, editData }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    editData ? editCourse(editData._id , formData) : addCourse(formData);
+    editData ? await editCourse(editData._id, formData) : await addCourse(formData);
+    reloadCourses();
+    editData = null;
+    onClose();
   };
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
       <div className="flex justify-between items-center mb-6">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white">Add New Course</h3>
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white">{editData ? 'Edit Course' : 'Add New Course'}</h3>
         <button
           onClick={onClose}
           className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
@@ -157,6 +175,50 @@ const CourseForm = ({ onClose, editData }) => {
             </select>
           </div>
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Course Provider
+            </label>
+            <div className='relative'>
+              <select
+                name="courseProvider"
+                value={formData.courseProvider}
+                onChange={handleChange}
+                className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select Provider</option>
+
+                {courseProviders.map((provider) => (
+                  <option key={provider} value={provider}>
+                    {provider}
+                  </option>
+                ))}
+              </select>
+
+              <button
+                type="button"
+                aria-label="Add new provider"
+                onClick={() => {
+                  const newProvider = prompt('Enter new course provider:');
+                  if (newProvider && !courseProviders.includes(newProvider)) {
+                    setCourseProviders((prevProviders) => [...prevProviders, newProvider]);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      courseProvider: newProvider,
+                    }));
+                  } else if (courseProviders.includes(newProvider)) {
+                    alert('Provider already exists!');
+                  }
+
+                }}
+                className="absolute right-7 top-2 text-blue-500 hover:text-blue-700"
+              >
+                Add
+              </button>
+
+            </div>
+          </div>
+
           <div className="col-span-2">
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Description
@@ -178,11 +240,13 @@ const CourseForm = ({ onClose, editData }) => {
             <input
               type="email"
               name="contactEmail"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               value={formData.contactEmail}
               onChange={handleChange}
               className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
               placeholder="contact@example.com"
             />
+
           </div>
 
           <div>
@@ -201,6 +265,9 @@ const CourseForm = ({ onClose, editData }) => {
         </div>
 
         <div className="flex justify-end gap-4">
+          {errorAdd && <p className="text-sm text-red-500">{errorAdd}</p>}
+          {errorEdit && <p className="text-sm text-red-500">{errorEdit}</p>}
+
           <button
             type="button"
             onClick={onClose}
@@ -210,9 +277,13 @@ const CourseForm = ({ onClose, editData }) => {
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
-          > {editData ? 'Update Course' : 'Add Course'}
+            disabled={loadingAdd || loadingEdit}
+            className={`px-4 py-2 ${loadingAdd || loadingEdit ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+              } text-white rounded-lg`}
+          >
+            {loadingAdd || loadingEdit ? 'Submitting...' : editData ? 'Update Course' : 'Add Course'}
           </button>
+
         </div>
       </form>
     </div>

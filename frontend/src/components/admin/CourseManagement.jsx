@@ -6,7 +6,7 @@ import { Search } from 'lucide-react';
 import useGetAllCourses from '../../hooks/useGetCourse';
 
 const CourseManagement = () => {
-  const { courses, loading, error } = useGetAllCourses();
+  const { fetchCourses, courses, loading, error } = useGetAllCourses();
   const [isAddingCourse, setIsAddingCourse] = useState(false);
   const [editData, setEditData] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,6 +23,10 @@ const CourseManagement = () => {
   function handleEditCourse(course) {
     setIsAddingCourse(true);
     setEditData(course);
+  }
+
+  function reloadCourses() {
+    fetchCourses();
   }
 
   return (
@@ -54,9 +58,9 @@ const CourseManagement = () => {
       </div>
 
       {isAddingCourse ? (
-        <CourseForm onClose={() => setIsAddingCourse(false)} editData={editData} />
+        <CourseForm onClose={() => { setIsAddingCourse(false); setEditData(null); }} editData={editData} courses={courses} reloadCourses={reloadCourses} />
       ) : (
-        <CourseList onEditCourse={handleEditCourse} courses={filteredCourses} />
+        <CourseList onEditCourse={handleEditCourse} courses={filteredCourses} reloadCourses={reloadCourses} />
       )}
     </div>
   );

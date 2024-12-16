@@ -2,13 +2,14 @@ import React from 'react';
 import { Edit2, Trash2 } from 'lucide-react';
 import useDeleteCourse from '../../hooks/useDeleteCourse';
 
-const CourseList = ({ onEditCourse, courses }) => {
+const CourseList = ({ onEditCourse, courses, reloadCourses }) => {
   const { deleteCourse, loadingDelete, errorDelete } = useDeleteCourse();
 
-  const handleDeleteCourse = (id) => {
+  const handleDeleteCourse = async (id) => {
     console.log(id);
     console.log('delete course');
-    deleteCourse(id);
+    await deleteCourse(id);
+    reloadCourses();
   }
 
   const handleEditCourse = (course) => {
