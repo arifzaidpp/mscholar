@@ -78,7 +78,7 @@ const CourseForm = ({ onClose, editData }) => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Age Range Start
+              Age Range From
             </label>
             <input
               type="number"
@@ -92,7 +92,7 @@ const CourseForm = ({ onClose, editData }) => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Age Range End
+              Age Range To
             </label>
             <input
               type="number"
@@ -136,13 +136,13 @@ const CourseForm = ({ onClose, editData }) => {
               <option value="">Select gender</option>
               <option value="Mixed">Mixed</option>
               <option value="Male">Male</option>
-              <option value="Females">Females</option>
+              <option value="Female">Female</option>
             </select>
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Mode
+              Mode Of Education
             </label>
             <select
               name="mode"
@@ -153,6 +153,7 @@ const CourseForm = ({ onClose, editData }) => {
               <option value="">Select mode</option>
               <option value="Online">Online</option>
               <option value="Offline">Offline</option>
+              <option value="Both">Both</option>
             </select>
           </div>
 

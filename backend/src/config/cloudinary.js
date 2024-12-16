@@ -6,7 +6,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-export const uploadToCloudinary = async (file, folder = 'quiz-master') => {
+export const uploadToCloudinary = async (file, folder = 'MScholar') => {
   try {
     const result = await cloudinary.uploader.upload(file.path, {
       folder,
