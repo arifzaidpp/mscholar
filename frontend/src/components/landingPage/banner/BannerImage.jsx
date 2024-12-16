@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, BookOpen } from "lucide-react";
+import { BookOpen, Youtube } from "lucide-react";
 
 export function BannerImage() {
   return (
@@ -23,8 +23,6 @@ export function BannerImage() {
             alt="Islamic Education"
             className="w-full h-auto object-cover rounded-full backdrop-blur-sm "
           />
-          {/* Blur or Transparency Effect */}
-          {/* <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white via-white/70 to-transparent dark:from-blue-800 dark:via-blue-800/70 dark:to-transparent pointer-events-none" /> */}
         </div>
 
         {/* Floating Elements */}
@@ -36,11 +34,11 @@ export function BannerImage() {
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center">
-              <Users className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <Youtube className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <div className="text-sm font-medium text-gray-900 dark:text-white">Active Users</div>
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">1,000+</div>
+              <div className="text-sm font-medium text-gray-900 dark:text-white">Online Courses</div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">200+</div>
             </div>
           </div>
         </motion.div>
@@ -56,7 +54,7 @@ export function BannerImage() {
               <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
             <div>
-              <div className="text-sm font-medium text-gray-900 dark:text-white">Total Courses</div>
+              <div className="text-sm font-medium text-gray-900 dark:text-white">Offline Courses</div>
               <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">100+</div>
             </div>
           </div>
