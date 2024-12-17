@@ -45,7 +45,7 @@ export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
 function App() {
 
   const { token, user } = getStoredAuthData();
-  
+
   const isAuthenticated = token && !isTokenExpired(token);
 
   return (
@@ -56,48 +56,48 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
 
-            <Route 
-              path="/login" 
+            <Route
+              path="/login"
               element={
                 isAuthenticated && user ? (
                   <Navigate to={`/${user?.role || 'user'}`} replace />
                 ) : (
                   <div><ThemeToggle /><LoginForm /></div>
                 )
-              } 
+              }
             />
 
-            <Route 
-              path="/signup" 
+            <Route
+              path="/signup"
               element={
                 isAuthenticated && user ? (
                   <Navigate to={`/${user?.role || 'user'}`} replace />
                 ) : (
                   <div><ThemeToggle /><SignupForm /></div>
                 )
-              } 
+              }
             />
 
             <Route path='/authenticating' element={
-               isAuthenticated && user ? (
-                  <Navigate to={`/${user?.role || 'user'}`} replace />
-                ) : (
-                  <div><ThemeToggle /><LoadingScreen /></div>
-                )
+              isAuthenticated && user ? (
+                <Navigate to={`/${user?.role || 'user'}`} replace />
+              ) : (
+                <div><ThemeToggle /><LoadingScreen /></div>
+              )
             } />
 
             <Route path="/forgot-password" element={<div><ThemeToggle /><ForgotPasswordForm /></div>} />
-            <Route path="/terms" element={<><ThemeToggle/><TermsOfService/></>} />
-            <Route path="/privacy" element={<><ThemeToggle/><PrivacyPolicy /></>} />
-            <Route path="/copyright" element={<><ThemeToggle/><CopyrightPolicy /></>} />
+            <Route path="/terms" element={<><ThemeToggle /><TermsOfService /></>} />
+            <Route path="/privacy" element={<><ThemeToggle /><PrivacyPolicy /></>} />
+            <Route path="/copyright" element={<><ThemeToggle /><CopyrightPolicy /></>} />
 
-            <Route 
-              path="/user/*" 
+            <Route
+              path="/user/*"
               element={
                 <ProtectedRoute allowedRoles={['user']}>
                   <DashboardLayout page="dashboard" />
                 </ProtectedRoute>
-              } 
+              }
             />
 
             <Route path='/user/profile' element={
@@ -106,18 +106,24 @@ function App() {
               </ProtectedRoute>
             } />
 
-            <Route 
-              path="/admin/*" 
+            <Route
+              path="/admin/*"
               element={
                 <ProtectedRoute allowedRoles={['admin']}>
-                  <AdminDashboard page='course'/>
+                  <AdminDashboard page='course' />
                 </ProtectedRoute>
-              } 
+              }
             />
 
             <Route path='/admin/users' element={
               <ProtectedRoute allowedRoles={['admin']}>
                 <AdminDashboard page='users' />
+              </ProtectedRoute>
+            } />
+
+            <Route path='/admin/profile' element={
+              <ProtectedRoute allowedRoles={['admin']}>
+                <AdminDashboard page='profile' />
               </ProtectedRoute>
             } />
 

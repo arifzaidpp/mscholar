@@ -21,7 +21,7 @@ const AdminHeader = ({ handleMenu }) => {
 
   const handleUserClick = () => {
     setIsOpen(false);
-    navigate('/dashboard/profile');
+    navigate('/admin/profile');
   }
 
   const handleLogout = () => {

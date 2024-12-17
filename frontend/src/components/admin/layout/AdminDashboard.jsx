@@ -3,6 +3,7 @@ import AdminSidebar from '../AdminSidebar';
 import AdminHeader from '../AdminHeader';
 import CourseManagement from '../CourseManagement';
 import UsersManagement from '../UsersManagement';
+import { UserProfile } from '../../user/profile/UserProfile';
 
 const AdminDashboard = (page) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,7 @@ const AdminDashboard = (page) => {
       <div className="ml-0 lg:ml-64 min-h-screen">
         <AdminHeader handleMenu={handleMenu} />
         <main className="p-6">
-          {page.page === 'users' ? <UsersManagement /> : <CourseManagement />}
+          {page.page === 'users' ? <UsersManagement /> : page.page === 'course' ? <CourseManagement /> : page.page === 'profile' ? <UserProfile /> : null}
         </main>
       </div>
     </div>
