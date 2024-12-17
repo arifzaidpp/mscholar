@@ -10,15 +10,11 @@ const useDeleteCourse = () => {
     const deleteCourse = async (id) => {
         setLoadingDelete(true);
         setErrorDelete(null);
-        console.log(id);
-        
 
         try {
             const response = await fetch(`${API_URL}/admin/delete-course/${id}`, {
                 method: 'DELETE',
             });
-
-            console.log(response);
             
 
             if (!response.ok) {
