@@ -9,8 +9,8 @@ import { BannerBadge } from './BannerBadge';
 
 export function Banner() {
   const stats = [
-    { icon: "Users", number: 1000, label: 'Active Users' },
-    { icon: "BookOpen", number: 300, label: 'Total Courses' },
+    { icon: "Users", number: 100, label: 'Active Users' },
+    { icon: "BookOpen", number: 150, label: 'Total Courses' },
     { icon: "Landmark", number: 50, label: 'Total Institution' },
     { icon: "Heart", number: 95, label: 'Satisfaction Rate (%)' }
   ];
