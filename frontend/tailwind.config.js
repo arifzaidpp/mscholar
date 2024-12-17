@@ -16,8 +16,13 @@ export default {
         'slide-up': 'slideUp 0.5s ease-in-out',
         'slide-down': 'slideDown 0.5s ease-in-out',
         'scale-in': 'scaleIn 0.5s ease-in-out',
+        'infinite-scroll': 'infinite-scroll 20s linear infinite',
       },
       keyframes: {
+        'infinite-scroll': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' }
+        },
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
