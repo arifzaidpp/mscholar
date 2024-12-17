@@ -59,37 +59,34 @@ export function LandingPage() {
 
           {/* Feature Blocks */}
           <FeatureBlock
-            title="Natural Language Processing (NLP)"
-            description="The AI product utilizes advanced NLP algorithms to understand and interpret human language,
-        enabling it to accurately process and analyze text-based inputs."
-            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/slide-1_rmv5rf.jpg"
+            title="Careers for Integrated Education (Material and Islamic)"
+            description="We offer a wide range of Islamic courses for children, featuring structured programs from foundational to advanced levels. By blending authentic knowledge with modern resources, we aim to deepen your understanding of Islam and support your learning journey."
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/itlab_en9rxo.jpg"
             imageAlt="NLP feature"
             reverse={false}
           />
 
           <FeatureBlock
-            title="Sentiment Analysis"
-            description="The product has built-in sentiment analysis capabilities, allowing it to determine the
-        sentiment (positive, negative, or neutral) expressed in text or customer feedback."
-            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429375/freepik__expand__23938_gpxy7u.png"
+            title="⁠Sharee't courses "
+            description="We offer a wide range of Sharee'ah courses for learners of all ages, covering foundational to advanced levels. With structured methods and modern resources, our programs provide authentic Islamic knowledge. Start your journey to learn and live Islam effectively with us."
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/slide-1_rmv5rf.jpg"
             imageAlt="Sentiment analysis feature"
             reverse={true}
           />
 
           <FeatureBlock
-            title="Natural Language Processing (NLP)"
-            description="The AI product utilizes advanced NLP algorithms to understand and interpret human language,
-        enabling it to accurately process and analyze text-based inputs."
+            title="⁠Dars centres"
+            description="We offer all available Darz Education courses, providing structured programs for learners at every level, from basic to advanced. Through a combination of authentic knowledge and modern resources, we aim to enhance your understanding of Islam."
             imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429376/7d98b4b99e94bbdd15bfa753a471fa5e_wscbko.png"
             imageAlt="NLP feature"
             reverse={false}
           />
 
           <FeatureBlock
-            title="Sentiment Analysis"
+            title="Online learning"
             description="The product has built-in sentiment analysis capabilities, allowing it to determine the
         sentiment (positive, negative, or neutral) expressed in text or customer feedback."
-            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/itlab_en9rxo.jpg"
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429375/freepik__expand__23938_gpxy7u.png"
             imageAlt="Sentiment analysis feature"
             reverse={true}
           />
