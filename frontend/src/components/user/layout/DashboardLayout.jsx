@@ -8,12 +8,12 @@ import { filterCourses } from '../../../utils/filterCourses';
 import useGetAllCourses from '../../../hooks/useGetCourse';
 import { Footer } from '../footer/Footer';
 import { useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Loader, Search } from 'lucide-react';
 import { useMemo } from 'react';
 import { UserProfile } from '../../profile/UserProfile';
 
 export function DashboardLayout(page) {
-  const { courses } = useGetAllCourses();
+  const { courses, loading } = useGetAllCourses();
   const [showFilters, setShowFilters] = useState(false);
   const [activeLevel, setActiveLevel] = useState('');
   const [filters, setFilters] = useState({
@@ -152,7 +152,7 @@ export function DashboardLayout(page) {
                 ))}
               </div>
 
-              {filteredCourses.length === 0 && (
+              {!loading && filteredCourses.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-gray-600 dark:text-gray-300 text-lg">
                     No courses found matching your criteria.
@@ -161,6 +161,16 @@ export function DashboardLayout(page) {
                     Try adjusting your filters to see more results.
                   </p>
                 </div>
+              )}
+
+              {loading && (
+                <div className="flex flex-col items-center justify-center py-16">
+                <Loader className="w-10 h-10 text-blue-600 dark:text-blue-400 animate-spin mb-4" />
+                <p className="text-gray-700 dark:text-gray-300 text-lg font-medium">
+                  Loading Courses...
+                </p>
+              </div>
+              
               )}
             </main>
             <Footer />
