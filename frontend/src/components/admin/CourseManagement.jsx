@@ -12,12 +12,18 @@ const CourseManagement = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCourses, setFilteredCourses] = useState([]);
 
+  
   useEffect(() => {
-    setFilteredCourses(
-      courses.filter(course =>
-        course.title.toLowerCase().includes(searchQuery.toLowerCase())
+    if (searchQuery) {
+      setFilteredCourses(
+      courses.filter((course, index) =>
+        searchQuery.toLowerCase().includes(course.title.toLowerCase()) ||
+        searchQuery?.toLowerCase() === ((index + 1).toString().toLowerCase())
       )
-    );
+      );
+    } else {
+      setFilteredCourses(courses);
+    }
   }, [courses, searchQuery]);
 
   function handleEditCourse(course) {

@@ -23,6 +23,9 @@ const CourseList = ({ onEditCourse, courses, reloadCourses }) => {
           <thead className="bg-gray-50 dark:bg-gray-700">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                No.
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                 Course
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
@@ -40,8 +43,13 @@ const CourseList = ({ onEditCourse, courses, reloadCourses }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-            {courses.map((course) => (
+            {courses.map((course, index) => (
               <tr key={course._id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                <td className="px-6 py-4">
+                  <div className="text-sm text-gray-900 dark:text-white">
+                    {index + 1}
+                  </div>
+                </td>
                 <td className="px-6 py-4">
                   <div className="text-sm font-medium text-gray-900 dark:text-white">
                     {course.title}
