@@ -5,7 +5,7 @@ const courseSchema = new mongoose.Schema({
     description: { type: String, required: true },
     ageRangeStart: { type: Number, },
     ageRangeEnd: { type: Number, },
-    sector: { type: String,  },
+    faction: { type: String,  },
     mode: { type: String, },
     courseProvider: { type: String, },
     enrollmentLink: { type: String,},

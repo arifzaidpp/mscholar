@@ -22,13 +22,13 @@ export const filterCourses = (courses, filters) => {
     // Mode of Education match logic
     const modeMatch = filters.modeOfEducation === 'All' || course.mode === filters.modeOfEducation;
 
-    // Sector match logic
-    const sectorMatch = filters.sector === 'All' || course.sector === filters.sector;
+    // Faction match logic
+    const factionMatch = filters.faction === 'All' || course.faction === filters.faction;
 
     // Search match logic
     const searchMatch = course.title.toLowerCase().includes(filters.search.toLowerCase()) ||
       course.courseProvider?.toLowerCase().includes(filters.search.toLowerCase());
 
-    return ageMatch && genderMatch && modeMatch && sectorMatch && searchMatch;
+    return ageMatch && genderMatch && modeMatch && factionMatch && searchMatch;
   });
 };

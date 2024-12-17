@@ -34,7 +34,7 @@ const CourseCard = ({ course }) => {
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:translate-y-[-4px] flex flex-col justify-between h-full">
       <div>
         <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-1">{course.title}</h3>
-        <p className='text-base text-gray-800 dark:text-gray-300 mb-2'>{course.sector}</p>
+        <p className='text-base text-gray-800 dark:text-gray-300 mb-2'>{course.faction}</p>
         <div className="flex flex-wrap gap-4 mb-3">
           {course.courseProvider && (
             <span className="bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200 px-3 py-1 rounded-full text-sm">

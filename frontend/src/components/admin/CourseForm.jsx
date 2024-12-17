@@ -29,7 +29,7 @@ const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
     ageRangeStart: editData?.ageRangeStart || '',
     ageRangeEnd: editData?.ageRangeEnd || '',
     gender: editData?.gender || '',
-    sector: editData?.sector || '',
+    faction: editData?.faction || '',
     enrollmentLink: editData?.enrollmentLink || '',
     mode: editData?.mode || '',
     courseProvider: editData?.courseProvider || '',
@@ -127,17 +127,17 @@ const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-              Sector
+              Faction
             </label>
             <select
-              name="sector"
-              value={formData.sector}
+              name="faction"
+              value={formData.faction}
               onChange={handleChange}
               className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Select Sector</option>
-              <option value="Sunni(EK)">Sunni(EK)</option>
-              <option value="Sunni(AP)">Sunni(AP)</option>
+              <option value="">Select Faction</option>
+              <option value="Samastha(EK)">Samastha(EK)</option>
+              <option value="Samastha(AP)">Samastha(AP)</option>
               <option value="Mujahid">Mujahid</option>
               <option value="Jam'a te Islami">Jam'a te Islami</option>
               <option value="Others">Others</option>

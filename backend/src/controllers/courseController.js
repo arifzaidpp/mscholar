@@ -5,7 +5,7 @@ import User from '../models/userModel.js'; // Import your user model
 export const addCourse = async (req, res) => {
     console.log(req.body);
     
-    const { title, ageRangeStart, ageRangeEnd, sector, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
+    const { title, ageRangeStart, ageRangeEnd, faction, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
     
     // Check if required fields are provided
     if (!title || !description) {
@@ -18,7 +18,7 @@ export const addCourse = async (req, res) => {
             ageRangeStart,
             ageRangeEnd,
             gender,
-            sector,
+            faction,
             mode,
             courseProvider,
             enrollmentLink,
@@ -54,7 +54,7 @@ export const editCourse = async (req, res) => {
     console.log(req.params);
     
     
-    const { title, ageRangeStart, ageRangeEnd, sector, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
+    const { title, ageRangeStart, ageRangeEnd, faction, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
 
     // Check if required fields are provided
     if (!title || !description) {
@@ -68,7 +68,7 @@ export const editCourse = async (req, res) => {
                 title,
                 ageRangeStart,
                 ageRangeEnd,
-                sector,
+                faction,
                 gender,
                 mode,
                 courseProvider,
