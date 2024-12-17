@@ -30,15 +30,15 @@ export function BannerImage() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="absolute z-20 top-4 -right-4 bg-gray-200/30 backdrop-blur-sm p-4 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+          className="absolute z-20 top-4 -right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center">
               <Youtube className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <div className="text-sm font-medium text-blue-100">Online Courses</div>
-              <div className="text-2xl font-bold text-blue-400">200+</div>
+            <div className="text-sm font-medium text-gray-900 dark:text-white">Online Courses</div>
+            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">200+</div>
             </div>
           </div>
         </motion.div>
@@ -47,15 +47,15 @@ export function BannerImage() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="absolute z-20 -bottom-4 -left-4 bg-gray-200/30 backdrop-blur-sm p-4 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+           className="absolute z-20 -bottom-4 -left-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-300"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/50 rounded-full flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />
             </div>
             <div>
-              <div className="text-sm font-medium text-blue-100">Offline Courses</div>
-              <div className="text-2xl font-bold text-purple-400">100+</div>
+            <div className="text-sm font-medium text-gray-900 dark:text-white">Offline Courses</div>
+            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">100+</div>
             </div>
           </div>
         </motion.div>
