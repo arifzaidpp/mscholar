@@ -33,7 +33,7 @@ export function DashboardLayout(page) {
     { name: 'Secondary', value: [13, 15] },
     { name: 'Higher Secondary', value: [16, 17] },
     { name: 'UG', value: [18, 21] },
-    { name: 'PG', value: [22] },
+    { name: 'PG', value: [22, 1000] },
     { name: 'General', value: "General" },
   ];
 
