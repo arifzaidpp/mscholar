@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, BookOpen, Heart, Landmark, Users } from 'lucide-react';
+import CountUp from 'react-countup';
 
 import { BannerImage } from './BannerImage';
 import { BannerBadge } from './BannerBadge';
 
 export function Banner() {
   const stats = [
-    { icon: "Users", number: '1000+', label: 'Active Users' },
-    { icon: "BookOpen", number: '300+', label: 'Total Courses' },
-    { icon: "Landmark", number: '50+', label: 'Total Institution' },
-    { icon: "Heart", number: '95%', label: 'Satisfaction Rate' }
+    { icon: "Users", number: 1000, label: 'Active Users' },
+    { icon: "BookOpen", number: 300, label: 'Total Courses' },
+    { icon: "Landmark", number: 50, label: 'Total Institution' },
+    { icon: "Heart", number: 95, label: 'Satisfaction Rate (%)' }
   ];
+
   return (
     <section className="relative min-h-[100vh] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 dark:from-gray-900 dark:via-blue-900 dark:to-gray-900 overflow-hidden">
       {/* Background Pattern */}
@@ -25,7 +27,8 @@ export function Banner() {
       <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-4 py-20 sm:py-32 lg:py-32">
+      {/* Banner Content */}
+      <div className="relative max-w-7xl mx-auto px-4 pt-28 pb-12 sm:pt-32 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <motion.div
@@ -78,34 +81,42 @@ export function Banner() {
                 Learn More
               </Link>
             </motion.div>
-
           </motion.div>
 
           {/* Right Content - Image */}
           <BannerImage />
         </div>
       </div>
-      <div className='relative'>
-      <div className="max-w-7xl mx-auto px-2">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="w-14 h-14 mb-2 bg-blue-100 dark:bg-blue-600/50 rounded-full flex items-center justify-center mx-auto">
-                {stat.icon === "Users" && <Users className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
-                {stat.icon === "BookOpen" && <BookOpen className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
-                {stat.icon === "Landmark" && <Landmark className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
-                {stat.icon === "Heart" && <Heart className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
-              </div>
-              <div className="text-3xl font-bold text-white ">
-                {stat.number}
-              </div>
-              <div className="text-base text-blue-200 mt-1">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+
+      {/* Stats Section */}
+      <div className="relative">
+        <div className="max-w-7xl mx-auto px-2 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 * index }}
+                className="text-center"
+              >
+                <div className="w-14 h-14 mb-2 bg-blue-100 dark:bg-blue-600/50 rounded-full flex items-center justify-center mx-auto">
+                  {stat.icon === "Users" && <Users className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
+                  {stat.icon === "BookOpen" && <BookOpen className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
+                  {stat.icon === "Landmark" && <Landmark className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
+                  {stat.icon === "Heart" && <Heart className="w-8 h-8 text-blue-600 dark:text-blue-200" />}
+                </div>
+                <div className="text-3xl font-bold text-white">
+                  {/* Animated CountUp */}
+                  <CountUp start={0} end={stat.number} duration={3} separator="," />+
+                </div>
+                <div className="text-base text-blue-200 mt-1">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );

@@ -95,6 +95,7 @@ export function LandingPage() {
           />
 
           {/* Add additional blocks as needed */}
+          <hr className='mt-12' />
           <PartnerLogos />
         </div>
       </section>
@@ -118,7 +119,89 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* FAQ Section */}
+      <section id='faq' className="py-20 bg-gray-100 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Here are some of the most common questions we get asked. If you have any other questions, feel free to contact us.
+            </p>
+          </div>
+          <div className="space-y-8">
+            <div className="mx-auto mt-8 grid max-w-xl divide-y divide-neutral-200 dark:divide-neutral-700">
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>What is MScholar?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">MScholar is an online platform offering comprehensive Islamic education with modern learning tools and qualified instructors.</p>
+                </details>
+              </div>
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>How do I sign up?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">You can sign up by clicking the 'Get Started Now' button and following the registration process.</p>
+                </details>
+              </div>
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>Is there a free trial available?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">Yes, we offer a 7-day free trial for new users to explore our platform and courses.</p>
+                </details>
+              </div>
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>What courses are available?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">We offer a wide range of courses covering various aspects of Islamic knowledge, including Quran, Hadith, Fiqh, and more.</p>
+                </details>
+              </div>
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>How can I contact support?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">You can contact our support team through the 'Contact' section on our website or by emailing support@mscholar.com.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id='contact'>
         <Contact />
       </section>
@@ -134,10 +217,6 @@ const FeatureBlock = ({ title, description, imageSrc, imageAlt, reverse }) => {
       {/* Content */}
       <div className={`max-w-xl px-6 lg:max-w-none lg:py-16 ${reverse ? 'lg:col-start-2' : ''}`}>
         <div>
-          {/* Icon */}
-          <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-500">
-            <FeatureIcon />
-          </span>
           {/* Text */}
           <div className="mt-6">
             <h2 className="text-3xl font-bold tracking-tight text-white">
@@ -146,14 +225,6 @@ const FeatureBlock = ({ title, description, imageSrc, imageAlt, reverse }) => {
             <p className="mt-4 text-lg text-gray-300">
               {description}
             </p>
-            <div className="mt-6">
-              <a
-                href="/login"
-                className="inline-flex rounded-lg bg-pink-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-pink-700"
-              >
-                Learn More
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -170,9 +241,3 @@ const FeatureBlock = ({ title, description, imageSrc, imageAlt, reverse }) => {
     </div>
   );
 };
-
-const FeatureIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-8 w-8 text-white">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-  </svg>
-);
