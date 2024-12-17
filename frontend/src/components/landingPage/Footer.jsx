@@ -124,19 +124,19 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
                 <span className="text-gray-600 dark:text-gray-300">
-                  support@mscholar.com
+                  mscholar.official@gmail.com
                 </span>
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
                 <span className="text-gray-600 dark:text-gray-300">
-                  +1 (555) 123-4567
+                  +91 7511152129
                 </span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
                 <span className="text-gray-600 dark:text-gray-300">
-                  123 Quiz Street, Learning City, ED 12345
+                  123 MScholar Street, Learning City, ED 12345
                 </span>
               </div>
             </motion.div>
