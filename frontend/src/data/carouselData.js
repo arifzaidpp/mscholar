@@ -14,7 +14,7 @@ export const carouselSlides = [
     subtitle: "At Advanced Institutions",
     description: "Join us, to get more comprehensive programs to learn Quran and improve related skills on your choice and convenience. Perfect for all age groups and learning levels.",
     stats: ["Live Sessions", "Personalized Attention"],
-    image: "https://res.cloudinary.com/dkykfxzpx/image/upload/v1734439137/CHILD_aewdic.png",
+    image: "https://res.cloudinary.com/dkykfxzpx/image/upload/v1734442075/CHILD_1_1_zogq1p.png",
     imageAlt: "Quran Learning"
   },
   {
@@ -23,7 +23,7 @@ export const carouselSlides = [
     subtitle: "For Every Age",
     description: "Explore the diverse range of Islamic studies programs designed for different age groups and learning preferences.",
     stats: ["Flexible Schedule", "Expert Guidance"],
-    image: "https://res.cloudinary.com/dkykfxzpx/image/upload/v1734281563/bddb53137fc1aad46b6056ba430ddd13_cfh1qn.png",
+    image: "https://res.cloudinary.com/dkykfxzpx/image/upload/v1734442075/22_1_nwkjvc.png",
     imageAlt: "Islamic Studies"
   }
 ];
