@@ -137,7 +137,7 @@ export function LandingPage() {
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
                     <span>What is MScholar?</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>
@@ -150,7 +150,7 @@ export function LandingPage() {
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
                     <span>How do I sign up?</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>
@@ -163,7 +163,7 @@ export function LandingPage() {
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
                     <span>Is there a free trial available?</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>
@@ -176,7 +176,7 @@ export function LandingPage() {
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
                     <span>What courses are available?</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>
@@ -189,7 +189,7 @@ export function LandingPage() {
                   <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
                     <span>How can I contact support?</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                         <path d="M6 9l6 6 6-6"></path>
                       </svg>
                     </span>

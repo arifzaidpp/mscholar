@@ -18,8 +18,8 @@ const quickLinks = [
 const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
   { name: 'Terms of Service', href: '/terms' },
-  { name: 'Cookie Policy', href: '#' },
-  { name: 'Help Center', href: '#' },
+  { name: 'Copyright Policy', href: '' },
+  { name: 'Help Center', href: '#contact' },
 ];
 
 export function Footer() {

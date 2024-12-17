@@ -87,8 +87,8 @@ function App() {
             } />
 
             <Route path="/forgot-password" element={<div><ThemeToggle /><ForgotPasswordForm /></div>} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<><ThemeToggle/><TermsOfService/></>} />
+            <Route path="/privacy" element={<><ThemeToggle/><PrivacyPolicy /></>} />
 
             <Route 
               path="/user/*" 
