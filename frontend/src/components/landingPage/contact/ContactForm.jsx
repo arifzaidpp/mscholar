@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, User, Mail, MessageSquare, HelpCircle, Phone } from 'lucide-react';
+import { Send, Loader2, User, Mail, MessageSquare, HelpCircle } from 'lucide-react';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({

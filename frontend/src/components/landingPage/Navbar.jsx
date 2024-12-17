@@ -35,7 +35,7 @@ export function Navbar() {
                 alt="Logo"
                 className="w-auto h-8 rounded-full"
               />
-              MScholar
+              <span className='text-2xl'>MScholar</span>
             </div>
           </motion.div>
 

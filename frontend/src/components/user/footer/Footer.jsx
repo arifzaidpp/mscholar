@@ -48,7 +48,7 @@ export function Footer() {
                 </span>
               </div>
               <p className="text-gray-600 dark:text-gray-300">
-                Empowering educators with secure and engaging mscholar solutions.
+              Explore the Path of Sacred Knowledge.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (

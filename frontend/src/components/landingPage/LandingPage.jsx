@@ -60,32 +60,31 @@ export function LandingPage() {
           {/* Feature Blocks */}
           <FeatureBlock
             title="Careers for Integrated Education (Material and Islamic)"
-            description="We offer a wide range of Islamic courses for children, featuring structured programs from foundational to advanced levels. By blending authentic knowledge with modern resources, we aim to deepen your understanding of Islam and support your learning journey."
+            description="We introduce a wide range of Islamic courses for children, featuring structured programs from foundational to advanced levels. By blending authentic knowledge with modern resources, we aim to deepen your understanding of Islam and support your learning journey."
             imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/itlab_en9rxo.jpg"
             imageAlt="NLP feature"
             reverse={false}
           />
 
           <FeatureBlock
-            title="⁠Sharee't courses "
-            description="We offer a wide range of Sharee'ah courses for learners of all ages, covering foundational to advanced levels. With structured methods and modern resources, our programs provide authentic Islamic knowledge. Start your journey to learn and live Islam effectively with us."
-            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/slide-1_rmv5rf.jpg"
+            title="Kids' Programs"
+            description="We introduce the wide range of kids' programs to teach young learners about Islam’s core values, the Qur'an, and the life of Prophet Muhammad (PBUH) through fun and engaging activities. Start your journey to learn and live Islam effectively."
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429376/7d98b4b99e94bbdd15bfa753a471fa5e_wscbko.png"
             imageAlt="Sentiment analysis feature"
             reverse={true}
           />
 
           <FeatureBlock
             title="⁠Dars centres"
-            description="We offer all available Darz Education courses, providing structured programs for learners at every level, from basic to advanced. Through a combination of authentic knowledge and modern resources, we aim to enhance your understanding of Islam."
-            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429376/7d98b4b99e94bbdd15bfa753a471fa5e_wscbko.png"
+            description="We introduce all available Dars Education courses, providing structured programs for learners at every level, from basic to advanced. Through a combination of authentic knowledge and modern resources, we aim to enhance your understanding of Islam."
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/slide-1_rmv5rf.jpg"
             imageAlt="NLP feature"
             reverse={false}
           />
 
           <FeatureBlock
             title="Online learning"
-            description="The product has built-in sentiment analysis capabilities, allowing it to determine the
-        sentiment (positive, negative, or neutral) expressed in text or customer feedback."
+            description="We introduce a variety of online Islamic courses for females, males, and mixed groups. Our programs cover all levels, from basic to advanced, combining authentic knowledge with modern resources to deepen your understanding of Islam."
             imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429375/freepik__expand__23938_gpxy7u.png"
             imageAlt="Sentiment analysis feature"
             reverse={true}
@@ -139,7 +138,7 @@ export function LandingPage() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">MScholar is career choosing platforms. It includes careers regarding Islamic education for different age groups.</p>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">MScholar is a career choosing platform. It includes careers regarding Islamic education for different age groups.</p>
                 </details>
               </div>
               <div className="py-5">
