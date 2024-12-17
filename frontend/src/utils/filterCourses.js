@@ -5,8 +5,6 @@
  * @returns {Array} Filtered courses
  */
 export const filterCourses = (courses, filters) => {
-  console.log("filterCourses -> filters", filters);
-  
   
   return courses.filter(course => {
     // Age range match logic

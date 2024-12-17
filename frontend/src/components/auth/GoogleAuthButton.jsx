@@ -10,9 +10,6 @@ export function GoogleAuthButton() {
   const params = new URLSearchParams(location.search);
   const isEffectCalled = useRef(false); // Ref to track effect execution
 
-  console.log(params);
-  
-
   // Get individual parameters from URL
   const success = params.get('success');
   const status = params.get('status');

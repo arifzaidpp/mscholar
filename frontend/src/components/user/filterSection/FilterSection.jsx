@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FilterSection = ({ filters, setFilters, courses }) => {
-  console.log(courses);
   
   const ageRanges = ['All Ages', ...new Set(courses.flatMap(course => {
     const range = [];

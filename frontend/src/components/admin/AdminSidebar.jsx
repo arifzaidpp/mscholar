@@ -16,7 +16,6 @@ const AdminSidebar = ({ handleMenu }) => {
   }
 
   const handleClick = (label) => {
-    console.log(label);
     const updatedMenuItems = menuItems.map(item =>
       item.label === label ? { ...item, active: true } : { ...item, active: false }
     );

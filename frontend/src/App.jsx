@@ -44,7 +44,6 @@ export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
 function App() {
 
   const { token, user } = getStoredAuthData();
-  console.log(token, user);
   
   const isAuthenticated = token && !isTokenExpired(token);
 

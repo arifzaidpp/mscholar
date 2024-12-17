@@ -2,8 +2,6 @@ import { uploadToCloudinary, deleteFromCloudinary } from '../config/cloudinary.j
 import User from '../models/userModel.js';
 
 export const updateImage = async (req, res) => {
-    console.log(req.file);
-    console.log(req.body);
     
   try {
     if (!req.file) {
@@ -11,7 +9,6 @@ export const updateImage = async (req, res) => {
     }
 
     const user = await User.findById(req.body.userId);
-    console.log(user.avatar.public_id);
     
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });

@@ -43,7 +43,6 @@ export const useAuth = () => {
   }, [navigate]);
 
   const login = useCallback(async (email, password) => {
-    console.log(email, password);
     
     setIsLoading(true);
     try {
@@ -57,7 +56,6 @@ export const useAuth = () => {
       });
 
       const data = await response.json();
-      console.log(data);
       
 
       if (!response.ok) {
@@ -106,7 +104,6 @@ export const useAuth = () => {
   }, [navigate]);
 
   const logout = useCallback(async () => {
-    console.log('logout');
     
     try {
       await fetch(`${API_URL}/auth/logout`, {

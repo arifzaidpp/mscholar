@@ -10,10 +10,6 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
   const user = req.user;
 
   const userEmailAddress = user.emails[0].value || user.email;
-
-  console.log('Google user:', user);
-  console.log('State:', state);
-  
   
 
   if (!user) {
@@ -24,8 +20,6 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
 
   // Check if user exists
   const existingUser = await User.findOne({ email: userEmailAddress });
-
-  console.log('Existing user:', existingUser);
   
 
   if (state === 'signup') {
@@ -70,7 +64,6 @@ export const handleGoogleCallback = catchAsyncErrors(async (req, res, next) => {
 
 // Register a user => /api/v1/auth/register
 export const registerUser = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
   
   const { name, email, password } = req.body;
 
@@ -111,9 +104,6 @@ export const registerUser = catchAsyncErrors(async (req, res, next) => {
 export const loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
 
-  console.log(req.body);
-  
-
   if (!email || !password) {
     return res.status(400).json({
       success: false,
@@ -147,7 +137,6 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Logout user => /api/v1/auth/logout
 export const logout = catchAsyncErrors(async (req, res, next) => {
-  console.log('Logged out');
   
   res.cookie('token', null, {
     expires: new Date(Date.now()),

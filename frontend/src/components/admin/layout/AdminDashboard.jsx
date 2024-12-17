@@ -5,7 +5,6 @@ import CourseManagement from '../CourseManagement';
 import UsersManagement from '../UsersManagement';
 
 const AdminDashboard = (page) => {
-  console.log(page);
   const [isOpen, setIsOpen] = useState(false);
 
   function handleMenu() {

@@ -3,7 +3,6 @@ import User from '../models/userModel.js'; // Import your user model
 
 // Add a new course
 export const addCourse = async (req, res) => {
-    console.log(req.body);
     
     const { title, ageRangeStart, ageRangeEnd, faction, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
     
@@ -50,9 +49,6 @@ export const getAllCourses = async (req, res) => {
 export const editCourse = async (req, res) => {
     
     const { id } = req.params;
-    console.log(req.body);
-    console.log(req.params);
-    
     
     const { title, ageRangeStart, ageRangeEnd, faction, mode, gender, courseProvider, enrollmentLink, description, contactEmail, contactPhone } = req.body;
 
@@ -93,7 +89,6 @@ export const editCourse = async (req, res) => {
 
 // Delete an course
 export const deleteCourse = async (req, res) => {
-    console.log(req.params);
     
     const { id } = req.params;
 

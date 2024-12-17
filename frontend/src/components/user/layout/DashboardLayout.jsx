@@ -65,13 +65,6 @@ export function DashboardLayout(page) {
     };
   }, []);
 
-  console.log(filters.level);
-
-  const handleFilterChange = (key, value) => {
-    setFilters(prev => ({ ...prev, [key]: value }));
-  };
-  
-
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">

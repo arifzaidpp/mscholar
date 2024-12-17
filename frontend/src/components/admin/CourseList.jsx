@@ -6,8 +6,6 @@ const CourseList = ({ onEditCourse, courses, courseIndex, reloadCourses }) => {
   const { deleteCourse, loadingDelete, errorDelete } = useDeleteCourse();
 
   const handleDeleteCourse = async (id) => {
-    console.log(id);
-    console.log('delete course');
     await deleteCourse(id);
     reloadCourses();
   }

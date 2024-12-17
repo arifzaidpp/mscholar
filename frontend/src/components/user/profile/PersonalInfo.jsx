@@ -18,8 +18,6 @@ export function PersonalInfo(user) {
     setIsEditing(false);
     // Handle form submission
   };
-
-  console.log('User:', user);
   
 
   return (

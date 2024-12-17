@@ -21,9 +21,6 @@ const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
   }, [courses]);
 
 
-  console.log(courseProviders);
-
-
   const [formData, setFormData] = useState({
     title: editData?.title || '',
     ageRangeStart: editData?.ageRangeStart || '',
@@ -48,7 +45,6 @@ const CourseForm = ({ onClose, editData, courses, reloadCourses }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     editData ? await editCourse(editData._id, formData) : await addCourse(formData);
     reloadCourses();
     editData = null;
