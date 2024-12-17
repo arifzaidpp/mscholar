@@ -6,11 +6,11 @@ import FilterSection from '../filterSection/FilterSection';
 import { carouselSlides } from '../../../data/carouselData';
 import { filterCourses } from '../../../utils/filterCourses';
 import useGetAllCourses from '../../../hooks/useGetCourse';
-import { UserProfile } from '../profile/UserProfile';
 import { Footer } from '../footer/Footer';
 import { useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { useMemo } from 'react';
+import { UserProfile } from '../../profile/UserProfile';
 
 export function DashboardLayout(page) {
   const { courses } = useGetAllCourses();

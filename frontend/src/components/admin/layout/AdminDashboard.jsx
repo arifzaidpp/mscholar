@@ -3,7 +3,7 @@ import AdminSidebar from '../AdminSidebar';
 import AdminHeader from '../AdminHeader';
 import CourseManagement from '../CourseManagement';
 import UsersManagement from '../UsersManagement';
-import { UserProfile } from '../../user/profile/UserProfile';
+import { UserProfile } from '../../profile/UserProfile';
 
 const AdminDashboard = (page) => {
   const [isOpen, setIsOpen] = useState(false);
