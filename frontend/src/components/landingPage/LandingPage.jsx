@@ -142,7 +142,7 @@ export function LandingPage() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">MScholar is an online platform offering comprehensive Islamic education with modern learning tools and qualified instructors.</p>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">MScholar is career choosing platforms. It includes careers regarding Islamic education for different age groups.</p>
                 </details>
               </div>
               <div className="py-5">
@@ -155,20 +155,19 @@ export function LandingPage() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">You can sign up by clicking the 'Get Started Now' button and following the registration process.</p>
-                </details>
-              </div>
-              <div className="py-5">
-                <details className="group">
-                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
-                    <span>Is there a free trial available?</span>
-                    <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
-                        <path d="M6 9l6 6 6-6"></path>
-                      </svg>
-                    </span>
-                  </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">Yes, we offer a 7-day free trial for new users to explore our platform and courses.</p>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">
+                    You can log in using the following steps: <br />
+                    <br />
+                    <strong>Email and Password:</strong> <br />
+                    Go to the login page. <br />
+                    Enter your registered email and password in the respective fields. <br />
+                    Click the <strong>"Login"</strong> button to access your account. <br />
+                    <br />
+                    <strong>Login with Google:</strong> <br />
+                    On the login page, you will find a <strong>"Login with Google"</strong> button. <br />
+                    Click the button to sign in quickly using your Google account credentials.
+                  </p>
+
                 </details>
               </div>
               <div className="py-5">
@@ -181,7 +180,20 @@ export function LandingPage() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">We offer a wide range of courses covering various aspects of Islamic knowledge, including Quran, Hadith, Fiqh, and more.</p>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">We offer a wide range of course details, covering various aspects of Islamic knowledge, including Quran, Hadith, Fiqh, and more.</p>
+                </details>
+              </div>
+              <div className="py-5">
+                <details className="group">
+                  <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-gray-900 dark:text-white">
+                    <span>Can I access the courses on mobile devices?</span>
+                    <span className="transition group-open:rotate-180">
+                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
+                        <path d="M6 9l6 6 6-6"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">Yes, MScholar is mobile-friendly, allowing you to access your courses on smartphones and tablets.</p>
                 </details>
               </div>
               <div className="py-5">
@@ -194,7 +206,7 @@ export function LandingPage() {
                       </svg>
                     </span>
                   </summary>
-                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">You can contact our support team through the 'Contact' section on our website or by emailing support@mscholar.com.</p>
+                  <p className="group-open:animate-fadeIn mt-3 text-neutral-600 dark:text-neutral-400">You can contact our support team through the 'Contact' section on our website or by emailing mscholar.official@gmail.com.</p>
                 </details>
               </div>
             </div>
