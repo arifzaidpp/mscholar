@@ -17,8 +17,8 @@ const CourseManagement = () => {
     if (searchQuery) {
       setFilteredCourses(
       courses.filter((course, index) =>
-        searchQuery.toLowerCase().includes(course.title.toLowerCase()) ||
-        searchQuery?.toLowerCase() === ((index + 1).toString().toLowerCase())
+        course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        searchQuery.toLowerCase() === ((index + 1).toString().toLowerCase())
       )
       );
     } else {
