@@ -1,8 +1,44 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, User, Mail, MessageSquare, HelpCircle } from 'lucide-react';
+import { MessageSquare, Send, Loader2, User, Mail, HelpCircle } from 'lucide-react';
 
-export function ContactForm() {
+function FormInput({
+  icon: Icon,
+  type,
+  name,
+  value,
+  onChange,
+  placeholder,
+  required
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative"
+    >
+      <div className="relative">
+        <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <input
+          type={type}
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
+          className="w-full pl-11 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600
+                   bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm
+                   text-gray-900 dark:text-white
+                   focus:ring-2 focus:ring-purple-500 focus:border-purple-500
+                   transition-all duration-200"
+          placeholder={placeholder}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,29 +50,24 @@ export function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
-
-  const InputWrapper = ({ children }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="relative"
-    >
-      {children}
-    </motion.div>
-  );
 
   return (
     <motion.div
@@ -51,8 +82,9 @@ export function ContactForm() {
 
       <form
         onSubmit={handleSubmit}
-        className="relative space-y-3 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl "
+        className="relative space-y-3 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl"
       >
+        {/* Form Header */}
         <div className="space-y-2 mb-4">
           <motion.div
             initial={{ scale: 0.95 }}
@@ -73,67 +105,44 @@ export function ContactForm() {
           </p>
         </div>
 
+        {/* Form Inputs */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <InputWrapper>
-            <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full pl-11 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600
-                         bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm
-                         text-gray-900 dark:text-white
-                         focus:ring-2 focus:ring-purple-500 focus:border-purple-500
-                         transition-all duration-200"
-                placeholder="Full name"
-              />
-            </div>
-          </InputWrapper>
-
-          <InputWrapper>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full pl-11 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600
-                             bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm
-                             text-gray-900 dark:text-white
-                             focus:ring-2 focus:ring-purple-500 focus:border-purple-500
-                             transition-all duration-200"
-                placeholder="sample@domain.com"
-              />
-            </div>
-          </InputWrapper>
+          <FormInput
+            icon={User}
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Full name"
+            required
+          />
+          <FormInput
+            icon={Mail}
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="sample@domain.com"
+            required
+          />
         </div>
 
+        <FormInput
+          icon={HelpCircle}
+          type="text"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          placeholder="Subject"
+          required
+        />
 
-        <InputWrapper>
-          <div className="relative">
-            <HelpCircle className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full pl-11 pr-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600
-                       bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm
-                       text-gray-900 dark:text-white
-                       focus:ring-2 focus:ring-purple-500 focus:border-purple-500
-                       transition-all duration-200"
-              placeholder="Subject"
-            />
-          </div>
-        </InputWrapper>
-
-        <InputWrapper>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative"
+        >
           <textarea
             name="message"
             value={formData.message}
@@ -147,8 +156,9 @@ export function ContactForm() {
                      transition-all duration-200 resize-none"
             placeholder="Your message..."
           />
-        </InputWrapper>
+        </motion.div>
 
+        {/* Submit Button */}
         <motion.button
           type="submit"
           disabled={isSubmitting}

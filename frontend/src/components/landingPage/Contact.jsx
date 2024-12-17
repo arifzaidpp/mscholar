@@ -1,4 +1,4 @@
-import { ContactForm } from './contact/ContactForm';
+import ContactForm  from './contact/ContactForm';
 import { ContactInfo } from './contact/ContactInfo';
 
 export function Contact() {
