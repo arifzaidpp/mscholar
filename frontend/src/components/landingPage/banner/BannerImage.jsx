@@ -38,7 +38,7 @@ export function BannerImage() {
             </div>
             <div>
             <div className="text-sm font-medium text-gray-900 dark:text-white">Online Courses</div>
-            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">200+</div>
+            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">70+</div>
             </div>
           </div>
         </motion.div>
@@ -55,7 +55,7 @@ export function BannerImage() {
             </div>
             <div>
             <div className="text-sm font-medium text-gray-900 dark:text-white">Offline Courses</div>
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">100+</div>
+            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">60+</div>
             </div>
           </div>
         </motion.div>
