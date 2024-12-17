@@ -62,7 +62,7 @@ export function LandingPage() {
             title="Natural Language Processing (NLP)"
             description="The AI product utilizes advanced NLP algorithms to understand and interpret human language,
         enabling it to accurately process and analyze text-based inputs."
-            imageSrc="https://images.unsplash.com/photo-1569144157591-c60f3f82f137"
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/slide-1_rmv5rf.jpg"
             imageAlt="NLP feature"
             reverse={false}
           />
@@ -71,7 +71,7 @@ export function LandingPage() {
             title="Sentiment Analysis"
             description="The product has built-in sentiment analysis capabilities, allowing it to determine the
         sentiment (positive, negative, or neutral) expressed in text or customer feedback."
-            imageSrc="https://images.unsplash.com/photo-1599134842279-fe807d23316e"
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429375/freepik__expand__23938_gpxy7u.png"
             imageAlt="Sentiment analysis feature"
             reverse={true}
           />
@@ -80,7 +80,7 @@ export function LandingPage() {
             title="Natural Language Processing (NLP)"
             description="The AI product utilizes advanced NLP algorithms to understand and interpret human language,
         enabling it to accurately process and analyze text-based inputs."
-            imageSrc="https://images.unsplash.com/photo-1569144157591-c60f3f82f137"
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429376/7d98b4b99e94bbdd15bfa753a471fa5e_wscbko.png"
             imageAlt="NLP feature"
             reverse={false}
           />
@@ -89,7 +89,7 @@ export function LandingPage() {
             title="Sentiment Analysis"
             description="The product has built-in sentiment analysis capabilities, allowing it to determine the
         sentiment (positive, negative, or neutral) expressed in text or customer feedback."
-            imageSrc="https://images.unsplash.com/photo-1599134842279-fe807d23316e"
+            imageSrc="https://res.cloudinary.com/dkykfxzpx/image/upload/v1734429373/itlab_en9rxo.jpg"
             imageAlt="Sentiment analysis feature"
             reverse={true}
           />
@@ -233,7 +233,7 @@ const FeatureBlock = ({ title, description, imageSrc, imageAlt, reverse }) => {
       <div className={`mt-12 lg:mt-0 ${reverse ? ' pr-6' : ' pl-6'}`}>
         <img
           loading="lazy"
-          className="w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5"
+          className="w-full h-80 object-cover rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5"
           src={imageSrc}
           alt={imageAlt}
         />
