@@ -12,13 +12,13 @@ const quickLinks = [
   { name: 'Home', href: '/' },
   { name: 'Available Courses', href: '#available-courses' },
   { name: 'Profile', href: '/profile' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 const legalLinks = [
   { name: 'Privacy Policy', href: '/privacy' },
   { name: 'Terms of Service', href: '/terms' },
-  { name: 'Copyright Policy', href: '' },
+  { name: 'Copyright Policy', href: '/copyright' },
   { name: 'Help Center', href: '#contact' },
 ];
 

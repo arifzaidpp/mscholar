@@ -13,6 +13,7 @@ import { DashboardLayout } from './components/user/layout/DashboardLayout';
 import AdminDashboard from './components/admin/layout/AdminDashboard';
 import { getStoredAuthData } from './utils/authUtils';
 import { LoadingScreen } from './components/googleLoading/loadingScreen';
+import { CopyrightPolicy } from './components/legal/Copyright';
 
 const isTokenExpired = (token) => {
   if (!token) return true;
@@ -88,6 +89,7 @@ function App() {
             <Route path="/forgot-password" element={<div><ThemeToggle /><ForgotPasswordForm /></div>} />
             <Route path="/terms" element={<><ThemeToggle/><TermsOfService/></>} />
             <Route path="/privacy" element={<><ThemeToggle/><PrivacyPolicy /></>} />
+            <Route path="/copyright" element={<><ThemeToggle/><CopyrightPolicy /></>} />
 
             <Route 
               path="/user/*" 
