@@ -44,10 +44,10 @@ export function Banner() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-4xl md:text-6xl font-bold text-white leading-tight"
+                className="text-4xl md:text-5xl font-bold text-white leading-tight"
               >
-                Discover the Path of
-                <span className="block text-blue-200">Sacred Knowledge</span>
+                Umbrella of Careers for
+                <span className="block text-blue-200"> Muslim Students</span>
               </motion.h1>
 
               <motion.p
@@ -56,8 +56,7 @@ export function Banner() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-lg text-blue-100 max-w-xl"
               >
-                Join our comprehensive Islamic education platform offering authentic courses
-                for all age groups. Learn from qualified scholars and progress at your own pace.
+                Join our comprehensive career choosing platform directing for all age groups.  Choose the best choice and learn the best.
               </motion.p>
             </div>
 
