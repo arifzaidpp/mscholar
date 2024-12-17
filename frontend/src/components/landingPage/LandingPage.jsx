@@ -219,10 +219,10 @@ const FeatureBlock = ({ title, description, imageSrc, imageAlt, reverse }) => {
         <div>
           {/* Text */}
           <div className="mt-6">
-            <h2 className="text-3xl font-bold tracking-tight text-white">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">
               {title}
             </h2>
-            <p className="mt-4 text-lg text-gray-300">
+            <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
               {description}
             </p>
           </div>
