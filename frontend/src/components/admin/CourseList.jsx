@@ -2,7 +2,7 @@ import React from 'react';
 import { Edit2, Trash2 } from 'lucide-react';
 import useDeleteCourse from '../../hooks/useDeleteCourse';
 
-const CourseList = ({ onEditCourse, courses, reloadCourses }) => {
+const CourseList = ({ onEditCourse, courses, courseIndex, reloadCourses }) => {
   const { deleteCourse, loadingDelete, errorDelete } = useDeleteCourse();
 
   const handleDeleteCourse = async (id) => {
@@ -47,7 +47,7 @@ const CourseList = ({ onEditCourse, courses, reloadCourses }) => {
               <tr key={course._id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                 <td className="px-6 py-4">
                   <div className="text-sm text-gray-900 dark:text-white">
-                    {index + 1}
+                  {courseIndex.findIndex(c => c._id === course._id) + 1}
                   </div>
                 </td>
                 <td className="px-6 py-4">
