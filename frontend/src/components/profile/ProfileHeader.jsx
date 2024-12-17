@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Camera } from 'lucide-react';
-import useUpdateImage from '../../../hooks/useUpdateImage';
+import useUpdateImage from '../../hooks/useUpdateImage';
 
 export function ProfileHeader(profile) {
   const { updateImage, loading } = useUpdateImage();
