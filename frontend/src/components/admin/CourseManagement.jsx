@@ -66,7 +66,7 @@ const CourseManagement = () => {
       {isAddingCourse ? (
         <CourseForm onClose={() => { setIsAddingCourse(false); setEditData(null); }} editData={editData} courses={courses} reloadCourses={reloadCourses} />
       ) : (
-        <CourseList onEditCourse={handleEditCourse} courses={filteredCourses} reloadCourses={reloadCourses} />
+        <CourseList onEditCourse={handleEditCourse} courses={filteredCourses} courseIndex={courses} reloadCourses={reloadCourses} />
       )}
     </div>
   );

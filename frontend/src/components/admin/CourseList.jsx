@@ -47,7 +47,7 @@ const CourseList = ({ onEditCourse, courses, courseIndex, reloadCourses }) => {
               <tr key={course._id} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
                 <td className="px-6 py-4">
                   <div className="text-sm text-gray-900 dark:text-white">
-                  {courseIndex.findIndex(c => c._id === course._id) + 1}
+                  {courseIndex ? courseIndex.findIndex(c => c._id === course._id) + 1 : ''}
                   </div>
                 </td>
                 <td className="px-6 py-4">
