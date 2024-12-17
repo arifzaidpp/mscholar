@@ -48,7 +48,7 @@ const CourseCard = ({ course }) => {
                 ? `${course.ageRangeStart}+ years`
                 : course.ageRangeEnd
                   ? `Up to ${course.ageRangeEnd} years`
-                  : 'All Ages'}
+                  : 'General'}
           </span>
           <span className="bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-200 px-3 py-1 rounded-full text-sm">
             {course.gender}

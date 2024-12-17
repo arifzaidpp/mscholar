@@ -5,6 +5,9 @@
  * @returns {Array} Filtered courses
  */
 export const filterCourses = (courses, filters) => {
+  console.log("filterCourses -> filters", filters);
+  
+  
   return courses.filter(course => {
     // Age range match logic
     const ageMatch = filters.ageRange === 'All Ages' || 
@@ -25,10 +28,15 @@ export const filterCourses = (courses, filters) => {
     // Faction match logic
     const factionMatch = filters.faction === 'All' || course.faction === filters.faction;
 
+    // level match logic
+    const levelMatch = filters.level === 'All' ||
+      (filters.level === 'General' && !course.ageRangeStart && !course.ageRangeEnd) ||
+      (course.ageRangeStart >= filters.level[0] && course.ageRangeEnd <= filters.level[1]);
+
     // Search match logic
     const searchMatch = course.title.toLowerCase().includes(filters.search.toLowerCase()) ||
       course.courseProvider?.toLowerCase().includes(filters.search.toLowerCase());
 
-    return ageMatch && genderMatch && modeMatch && factionMatch && searchMatch;
+    return ageMatch && genderMatch && modeMatch && factionMatch && searchMatch && levelMatch;
   });
 };
