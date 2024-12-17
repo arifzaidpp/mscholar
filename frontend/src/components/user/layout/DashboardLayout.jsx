@@ -28,16 +28,26 @@ export function DashboardLayout(page) {
   const levels = [
     { name: 'All', value: 'All' },
     { name: 'Pre Primary', value: [3, 4] },
-    { name: 'Lower Primary', value: [5, 6] },
-    { name: 'Upper Primary', value: [7, 8] },
-    { name: 'Secondary', value: [9, 10] },
-    { name: 'Higher Secondary', value: [11, 12] },
-    { name: 'UG', value: [13, 19] },
-    { name: 'PG', value: [20,24] },
+    { name: 'Lower Primary', value: [5, 9] },
+    { name: 'Upper Primary', value: [10, 12] },
+    { name: 'Secondary', value: [13, 15] },
+    { name: 'Higher Secondary', value: [16, 17] },
+    { name: 'UG', value: [18, 21] },
+    { name: 'PG', value: [22] },
     { name: 'General', value: "General" },
   ];
 
-  const filteredCourses = useMemo(() => filterCourses(courses, filters), [courses, filters]);
+  // const filteredCourses = useMemo(() => filterCourses(courses, filters), [courses, filters]);
+
+  const filteredCourses = useMemo(() => {
+    const coursesFiltered = filterCourses(courses, filters);
+    return coursesFiltered.sort((a, b) => {
+      const titleA = a.title.toLowerCase();
+      const titleB = b.title.toLowerCase();
+      return titleA.localeCompare(titleB);
+    });
+  }, [courses, filters]);
+  
 
   useEffect(() => {
     const handleScroll = (e) => {
